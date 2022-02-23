@@ -1,0 +1,69 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.loader {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #e0effa;
+  -webkit-animation: loading 2s linear infinite;
+          animation: loading 2s linear infinite;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.loader span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background-color: #ffff;
+}
+
+#circle1 .loader::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#0abaff));
+  background: linear-gradient(to top, transparent, #0abaff);
+}
+
+#circle1 .loader::after {
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#00ccff));
+  background: linear-gradient(to top, transparent, #00ccff);
+}
+/*# sourceMappingURL=main.css.map */
