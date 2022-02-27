@@ -1,2 +1,8 @@
+@import './common';
 @import './home';
 @import './loading';
+@import './sidebar';
+
+body{
+  margin: 0;
+}
