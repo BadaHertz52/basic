@@ -1,7 +1,7 @@
 import React, { useEffect }from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Loading from './components/Loading';
-import Navigation from './components/Navigation';
+import Navigation from './components/Sidebar';
 import Home from './router/Home';
 import './assets/main.css';
 
@@ -19,7 +19,7 @@ function App() {
       <div id="main">
         <Routes>
           <Route 
-            path="/basic/"
+            path="/basic"
             element={<Home/>}
           />
           <Route 
