@@ -1,0 +1,17 @@
+$grey:#fafafa;
+$grapefruit:#ff6232;
+$light_greyfruit:#ffab91;
+
+@mixin basicBtn {
+  background-color: transparent;
+  border:none;
+}
+#root {
+  display: flex;
+  li{
+    list-style: none;
+  }
+}
+#main {
+  padding: 1rem;
+}
