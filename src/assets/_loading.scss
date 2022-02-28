@@ -1,117 +1,191 @@
 #loading {
   box-sizing: border-box;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   section {
     width: 100%;
-  }
-  #circleLoading{
-    display: flex;
-    justify-content: space-around;
-    .container{
-      margin-left: 10%;
-    }
-    .loader {
-      width: 10vw;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      position: relative;
-    }
-  }
-  #circle1{
-    .container {
-      position: absolute;
-      top:50%;
-      left: 50%;
-    }
-    .loader {
-      background-color:rgb(224, 239, 250) ;
-      animation: loading 2s linear infinite;
-      @keyframes loading {
-        0%
-        {transform: rotate(0deg);}
-        100% 
-        {transform: rotate(360deg);}
-      }
-      &::before{
-        content: "";
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 50%;
-        height: 100%;
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-        background:linear-gradient(to top, transparent ,rgb(10, 186, 255));
-      }
-      span{
-        position: absolute;
-        top:10%;
-        left:10%;
-        right: 10%;
-        bottom:10%;
-        border-radius: 50%;
-        background-color: #ffff;
+    height: 30%;
+    margin-bottom: 2rem;
+    header {
+      font-size: 1.2rem;
+      margin : {
+        left: 1rem;
+        bottom:1rem
       }
     }
   }
+}
 
-  #circle2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .loader {
-      animation: changeColor 10s linear infinite;
-    }
-    @keyframes changeColor {
+#circleLoading >div {
+  display: flex;
+  justify-content: space-around;
+  .loader {
+    width: 10vw;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+  }
+}
+#circle1{
+  .container {
+    position: absolute;
+    top:50%;
+    left: 50%;
+  }
+  .loader {
+    background-color:rgb(224, 239, 250) ;
+    animation: loading 2s linear infinite;
+    @keyframes loading {
       0%
-      {
-        filter:hue-rotate(0deg)
-      }
-      100%
-      {
-        filter:hue-rotate(360deg)
-      }
+      {transform: rotate(0deg);}
+      100% 
+      {transform: rotate(360deg);}
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      background:linear-gradient(to top, transparent ,rgb(10, 186, 255));
     }
     span{
       position: absolute;
-      top:0;
-      left:0;
-      width: 100%;
-      height:100%;
-
-      &::before{
-        content: "";
-        position: absolute;
-        top:10%;
-        left:10%;
-        width: 10%;
-        height:10% ;
-        border-radius: 50%;
-        background-color:#a765fd ;
-        box-shadow: 0 0 5px #e5d1ff,
-        0 0 15px  #e5d1ff,
-        0 0 25px  #e5d1ff,
-        ;
-      }
+      top:10%;
+      left:10%;
+      right: 10%;
+      bottom:10%;
+      border-radius: 50%;
+      background-color: #ffff;
     }
-    @for $i from 1 through 20 {
-      span:nth-child(#{$i}){
-        transform: rotate( 18deg * $i );
-        &::before {
-          animation: animate 2s linear infinite;
-          animation-delay: (0.1s * $i);
+  }
+}
+
+#circle2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    animation: changeColor 10s linear infinite;
+  }
+  @keyframes changeColor {
+    0%
+    {
+      filter:hue-rotate(0deg)
+    }
+    100%
+    {
+      filter:hue-rotate(360deg)
+    }
+  }
+  span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+
+    &::before{
+      content: "";
+      position: absolute;
+      top:10%;
+      left:10%;
+      width: 10%;
+      height:10% ;
+      border-radius: 50%;
+      background-color:#a765fd ;
+      box-shadow: 0 0 5px #e5d1ff,
+      0 0 15px  #e5d1ff,
+      0 0 25px  #e5d1ff,
+      ;
+    }
+  }
+  @for $i from 1 through 20 {
+    span:nth-child(#{$i}){
+      transform: rotate( 18deg * $i );
+      &::before {
+        animation: animate 2s linear infinite;
+        animation-delay: (0.1s * $i);
+      }
+      @keyframes animate {
+        0%
+        {
+          transform: scale(1);
         }
-        @keyframes animate {
-          0%
-          {
-            transform: scale(1);
-          }
-          80%, 100% 
-          {
-            transform:scale(0);
-          }
+        80%, 100% 
+        {
+          transform:scale(0);
         }
       }
     }
   }
 }
+
+#floatingLoading{
+  height:4.5rem;;
+  .container{
+    width: 50% ;
+    height: 100%;
+    margin-top: 6rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
+#floating1 {
+  position: relative;
+  .loader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    .circle {
+      border-radius: 50%;
+      width: 10%;
+      aspect-ratio: 1/1;
+      margin: 0;
+      margin-left: 5%;
+      background-color: #ff3575;
+      animation: floating 1s linear infinite;
+    }
+    @keyframes floating {
+      0%
+      {
+        transform: translateY(0);
+      }
+      25%
+      {
+        transform: translateY(60%);
+      }
+      50%
+      {
+        transform: translateY(120%);
+      }
+      75%
+      {
+        transform: translateY(60%);
+      }
+      100%
+      {
+        transform: translateY(0);
+      }
+    }
+    @for $i from 1 through 4 {
+      .circle:nth-child(#{$i}){
+        animation-delay: (0.15s * $i);
+        opacity: (0.25 * $i);
+      }
+    }
+  }
+
+}
+
+

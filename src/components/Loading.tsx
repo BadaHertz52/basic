@@ -11,16 +11,34 @@ const Loading =()=>{
   return (
     <div id="loading">
       <section id="circleLoading">
-        <div id="circle1" className='container'>
-          <div className='loader'>
-            <span></span>
+        <header>Circle</header>
+        <div>
+          <div id="circle1" className='container'>
+            <div className='loader'>
+              <span></span>
+            </div>
+          </div>
+          <div id="circle2" className='container'>
+            <div className='loader'>
+              {circle2_spans}
+            </div>
           </div>
         </div>
-        <div id="circle2" className='container'>
-          <div className='loader'>
-            {circle2_spans}
+      </section>
+      <section id="floatingLoading">
+        <header>
+          Floating
+        </header>
+        <div>
+          <div id="floating1" 
+          className='container'>
+            <div className='loader'>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
           </div>
-          
         </div>
       </section>
     </div >
