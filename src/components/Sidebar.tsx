@@ -11,9 +11,7 @@ const Sidebar =()=>{
   const onMenu =()=>{
     setOpen(!open);
     if(sidebar !==null ){
-      console.log("sidebar", sidebar.style)
       const width =window.innerWidth * 0.3;
-      //console.log(width ,navMenu.style)
       open ?
       sidebar.style.marginLeft = "0px"
       :
