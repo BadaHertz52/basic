@@ -4,6 +4,7 @@ import Loading from './components/Loading';
 import Navigation from './components/Sidebar';
 import Home from './router/Home';
 import './assets/main.css';
+import Practice from './components/Practice';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
           <Route 
             path="/basic/loading"
             element={<Loading/>}
+          />
+          <Route
+            path="/basic/practice"
+            element={<Practice/>}
           />
         </Routes>
       </div>

@@ -34,6 +34,11 @@ const Sidebar =()=>{
               </button >
             </li>
             <li>  
+              <button onClick={()=>(navigate('/basic/practice'))}>
+                Practice
+              </button >
+            </li>
+            <li>  
               <button onClick={()=>(navigate('/basic/loading'))}>
                 Loading
               </button >
