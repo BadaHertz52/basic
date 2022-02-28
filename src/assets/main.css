@@ -12,13 +12,13 @@
   padding: 1rem;
 }
 
-.container {
+#loading .container {
   position: absolute;
   top: 50%;
   left: 50%;
 }
 
-.loader {
+#loading .loader {
   position: relative;
   width: 4rem;
   height: 4rem;
@@ -50,7 +50,7 @@
   }
 }
 
-.loader::before {
+#loading .loader::before {
   content: "";
   position: absolute;
   top: 0;
@@ -61,7 +61,7 @@
   border-bottom-left-radius: 100px;
 }
 
-.loader span {
+#loading .loader span {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -71,12 +71,12 @@
   background-color: #ffff;
 }
 
-#circle1 .loader::before {
+#loading #circle1 .loader::before {
   background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#0abaff));
   background: linear-gradient(to top, transparent, #0abaff);
 }
 
-#circle1 .loader::after {
+#loading #circle1 .loader::after {
   background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#00ccff));
   background: linear-gradient(to top, transparent, #00ccff);
 }
@@ -96,12 +96,10 @@
 }
 
 #sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   margin: 0;
-  width: 30%;
-  height: 100%;
+  width: 30vw;
+  height: 100vh;
   -webkit-transition: 1s;
   transition: 1s;
 }
