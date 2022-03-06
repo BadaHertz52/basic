@@ -1,10 +1,15 @@
-$grey:#fafafa;
+$light_grey:#fafafa;
+$grey:#d3d3d3;
 $grapefruit:#ff6232;
 $light_greyfruit:#ffab91;
-
+$black:#3d4449;
+$light_black:#7e7e7e;
 @mixin basicBtn {
   background-color: transparent;
   border:none;
+}
+body{
+  overflow-x: hidden;
 }
 #root {
   display: flex;
@@ -15,7 +20,5 @@ $light_greyfruit:#ffab91;
 #main {
   width: 100vw;
   height: 100vh;
-  padding: 1rem;
   padding-top: 5rem;
-  padding-left: 2rem;
 }
