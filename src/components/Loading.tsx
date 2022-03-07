@@ -15,7 +15,7 @@ const Loading =()=>{
   const innerWidth = window.innerWidth;
   const [bar2Width, setBar2Width]=useState(0);
   let percent =0;
-  const loadingBar2  =setInterval(showPercentBar2, 100);
+  const loadingBar2  =setInterval(showPercentBar2, 50);
   function showPercentBar2 (){
     if(bar2!==null 
       && bar2_bar !==null 
@@ -24,13 +24,12 @@ const Loading =()=>{
           clearInterval(loadingBar2);
           bar2_percent.textContent ="Complete!!";
         }else {
-          percent =percent +1;
+          percent =percent +2;
           bar2_bar.style.width =  bar2Width *0.01 * percent + "px";
           bar2_percent.textContent= percent +"%";
       }
   }};
-  
-  window.onresize = ()=>{
+   const adjustWidth =()=>{
     innerWidth> 700 ?
     setBar2Width(innerWidth * 0.23):
       innerWidth>320?
@@ -41,6 +40,8 @@ const Loading =()=>{
     }
   };
 
+  window.onresize = adjustWidth;
+  window.onload =adjustWidth;
   return (
     <div id="loading">
       <section id="circleLoading">
