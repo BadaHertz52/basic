@@ -52,6 +52,22 @@ const Loading =()=>{
           </div>
         </div>
       </section>
+      <section id="barLoading">
+        <header>Bar</header>
+        <div>
+          <div  id="bar1" className='container'>
+            <div className='loader'>
+              <div className='bar'></div>  
+            </div>
+            <div className='loading'>
+              Loading...
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="percentLoading">
+
+      </section>
     </div >
   )
 };
