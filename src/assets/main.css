@@ -895,7 +895,31 @@ body {
       align-content: center;
 }
 
-#barLoading #bar1 {
+#barLoading .container {
+  width: 80%;
+  margin: 0 10%;
+}
+
+#barLoading .loader {
+  width: 100%;
+  height: 1.2rem;
+  border-radius: 10px;
+  margin: 1% 0;
+}
+
+#barLoading .bar {
+  height: inherit;
+  border-radius: inherit;
+}
+
+#barLoading .loading {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#bar1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -908,26 +932,17 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  width: 80%;
-  margin: 0 10%;
 }
 
-#barLoading #bar1 .loader {
-  width: 100%;
-  height: 1.2rem;
+#bar1 .loader {
   border: 2px solid #A6CF98;
-  border-radius: 10px;
-  padding: 1%;
 }
 
-#barLoading #bar1 .loading {
-  text-align: center;
+#bar1 .loading {
   -webkit-animation: bar1Loading 8s linear infinite;
           animation: bar1Loading 8s linear infinite;
   color: #2c9409;
   opacity: 0;
-  font-size: 1rem;
-  font-weight: bold;
 }
 
 @-webkit-keyframes bar1Loading {
@@ -966,10 +981,8 @@ body {
   }
 }
 
-#barLoading #bar1 .bar {
-  height: 100%;
+#bar1 #bar1_bar {
   width: 0;
-  border-radius: inherit;
   background-color: #90db78;
   -webkit-animation: animateBar1 8s linear infinite;
           animation: animateBar1 8s linear infinite;
@@ -999,6 +1012,22 @@ body {
   }
 }
 
+#bar2 {
+  width: 300px;
+}
+
+#bar2 .loader {
+  border: 2px solid #b2b9b8;
+}
+
+#bar2 #bar2_bar {
+  background-color: #e3ec64;
+}
+
+#bar2 #bar2_percent {
+  color: #3d4449;
+}
+
 @media screen and (min-width: 700px) {
   #floatingLoading > div {
     -webkit-box-orient: horizontal;
@@ -1017,14 +1046,17 @@ body {
   #floatingLoading #floating2 span {
     font-size: 2.2rem;
   }
-  #barLoading {
+  #barLoading > div {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
-  #barLoading #bar1 {
-    width: 45%;
+  #barLoading .container {
+    width: 30%;
+    margin: 0;
   }
 }
 

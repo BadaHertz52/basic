@@ -242,77 +242,100 @@
     justify-content: center;
     align-content: center;
   }
-  #bar1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center ;
+  .container{
     width: 80%;
     margin: 0 10%;
-    .loader{
-      width:100%;
-      height: 1.2rem;
-      border:2px solid #A6CF98;
-      border-radius: 10px;
-      padding: 1%;
-    }
-    .loading  {
-      text-align: center;
-      animation: bar1Loading 8s linear infinite;
-      color:#2c9409;
-      opacity: 0;
-      font: {
-        size: 1rem;
-        weight : bold
-      }
-    }
-    @keyframes bar1Loading {
-      0%
-      {
-        opacity: 0;
-      }
-      25%
-      {
-        opacity: 25%;
-      }
-      50%
-      {
-        opacity: 50%;
-      }
-      75%
-      {
-        opacity: 75%;
-      }
-      100% 
-      {
-        opacity: 1;
-      }
-    }
-
-    .bar {
-      height: 100%;
-      width: 0;
-      border-radius: inherit;
-      background-color:#90db78 ;
-      animation: animateBar1 8s linear infinite;
-    }
-    @keyframes animateBar1 {
-      0%
-      {
-        width: 0%;
-      }
-      50%
-      {
-        width: 50%;
-      }
-      100% 
-      {
-        width:100%
-      }
+  }
+  .loader {
+    width:100%;
+    height: 1.2rem;
+    border-radius: 10px;
+    margin: 1% 0;
+  }
+  .bar {
+    height: inherit;
+    border-radius: inherit;
+  }
+  .loading  {
+    margin-top: 10px;
+    text-align: center;
+    font: {
+      size: 1.3rem;
+      weight : bold
     }
   }
 }
 
+#bar1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center ;
+  .loader{
+    border:2px solid #A6CF98;
+
+  }
+  .loading  {
+    animation: bar1Loading 8s linear infinite;
+    color:#2c9409;
+    opacity: 0;
+  }
+  @keyframes bar1Loading {
+    0%
+    {
+      opacity: 0;
+    }
+    25%
+    {
+      opacity: 25%;
+    }
+    50%
+    {
+      opacity: 50%;
+    }
+    75%
+    {
+      opacity: 75%;
+    }
+    100% 
+    {
+      opacity: 1;
+    }
+  }
+
+  #bar1_bar {
+    width: 0;
+    background-color:#90db78 ;
+    animation: animateBar1 8s linear infinite;
+  }
+  @keyframes animateBar1 {
+    0%
+    {
+      width: 0%;
+    }
+    50%
+    {
+      width: 50%;
+    }
+    100% 
+    {
+      width:100%
+    }
+  }
+}
+
+#bar2 {
+  width: 300px;
+  .loader {
+    border:2px solid #b2b9b8;
+  }
+  #bar2_bar {
+    background-color:#e3ec64 ;
+  }
+  #bar2_percent {
+    color: $black;
+  }
+}
 @media screen and (min-width:700px) {
   #floatingLoading {
     &>div{
@@ -332,12 +355,17 @@
     }
   }
   #barLoading {
-    flex-direction: row;
-    #bar1 {
-      width: 45%;
+    &>div {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .container{
+      width: 30%;
+      margin:0;
+    }
   }
 }
-}
+
 
 @media screen and (min-width:425px) {
   #circleLoading >div {
