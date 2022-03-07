@@ -1012,10 +1012,6 @@ body {
   }
 }
 
-#bar2 {
-  width: 300px;
-}
-
 #bar2 .loader {
   border: 2px solid #b2b9b8;
 }
