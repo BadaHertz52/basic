@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const Loading =()=>{
-  let circle2_spans =[]
+  let circle3_spans =[]
   let i =0;
-  while (i<20 && circle2_spans.length<20){
-    circle2_spans.push(<span key={`circle2_span_${i}`} id={`circle2_span_${i}`}></span>);
+  while (i<20 && circle3_spans.length<20){
+    circle3_spans.push(<span key={`circle3_span_${i}`} id={`circle3_span_${i}`}></span>);
     i++;
   };
 
@@ -52,9 +52,27 @@ const Loading =()=>{
               <span></span>
             </div>
           </div>
-          <div id="circle2" className='container'>
+          <div id="circle2" className='container loader'>
+            <div className="inner "></div>
+            <div className="outer "></div>
+            <div className="loading ">
+              Loading...
+            </div>
+            <div className="circle ">
+              <div className="dot">
+                <span></span>  
+              </div>
+              <div className="bar left">
+                <div className="progress"></div>
+              </div>
+              <div className="bar right">
+                <div className="progress"></div>
+              </div>  
+            </div>
+          </div>
+          <div id="circle3" className='container'>
             <div className='loader'>
-              {circle2_spans}
+              {circle3_spans}
             </div>
           </div>
         </div>

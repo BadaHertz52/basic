@@ -75,6 +75,137 @@
 }
 
 #circle2 {
+  
+  .inner , .outer , .loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    border-radius: 100%;
+    box-shadow: inset 0 1px rgba(0,0,0, 0.3);
+  }
+  .inner {
+    top:50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    margin: -40% 0 0 -40%;
+    background-color:#f0f0f0 ;
+    box-shadow: inset 0 1px rgba(0,0,0, 0.3);
+  }
+  .circle {
+    z-index: 1;
+    box-shadow: none;
+  }
+  .loading {
+    z-index: 10;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+  }
+  .bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    clip: rect(0 ,20vw ,20vw , 10vw);
+    border-radius: 50%;
+  }
+  .progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip: rect(0 , 10vw, 20vw ,0);
+    border-radius: 50%;
+  }
+  .progress ,
+  .dot span{
+    background-color:#0f6fc9;
+  }
+
+  .left .progress {
+    z-index: 1;
+    animation: circle2 4s linear both;
+  }
+  @keyframes circle2 {
+    100%{
+      transform: rotate(180deg);
+    }
+  }
+  .right{
+    z-index: 3;
+    transform: rotate(180deg);
+    .progress{
+      animation: circle2 4s linear both;
+      animation-delay: 4s ;
+    }
+  }
+  .dot {
+    z-index: 2;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 50%;
+    height: 10%;
+    margin-top: -4%;
+    transform-origin: 0% 50%;
+    animation: dot 8s linear both;
+    span{
+      position: absolute;
+      right: 0;
+      border-radius: 50%;
+      width: 2vw;
+      height: 2vw;
+    }
+    @keyframes dot {
+      0%{
+        transform: rotate(-90deg)
+      }
+      50% {
+        transform: rotate(90deg);
+        z-index: 4;
+      }
+      100%{
+        transform: rotate(270deg);
+        z-index: 4;
+      }
+    }
+  }
+  .loading {
+    animation: loadingText 8s linear both;
+    color:#242424;
+    font-weight: 500;
+  }
+  @keyframes loadingText {
+    0%{
+      opacity: 0.2;
+    }
+    20%{
+      opacity: 1;
+    }
+    40%{
+      opacity: 0.2;
+    }
+    60%{
+      opacity:1 ;
+    }
+    70%{
+      opacity: 0.2;
+    }
+    85%{
+      opacity: 1;
+    }
+    95%{
+      opacity:0.5 ;
+    }
+    100%{
+      opacity:0 ;
+    }
+  }
+}
+
+#circle3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,19 +247,19 @@
     span:nth-child(#{$i}){
       transform: rotate( 18deg * $i );
       &::before {
-        animation: animateCircle2 2s linear infinite;
+        animation: animateCircle3 2s linear infinite;
         animation-delay:0.1s * $i;
       }
     }
-    @keyframes animateCircle2 {
-      0%
-      {
-        transform: scale(1);
-      }
-      80%,100% 
-      {
-        transform:scale(0);
-      }
+  }
+  @keyframes animateCircle3 {
+    0%
+    {
+      transform: scale(1);
+    }
+    80%,100% 
+    {
+      transform:scale(0);
     }
   }
 }
@@ -369,7 +500,38 @@
 @media screen and (min-width:425px) {
   #circleLoading >div {
     .loader {
-      width: 10vw;
+      width: 18vw;
+    }
+  }
+  #circle2 {
+    .bar {
+      clip: rect(0 ,18vw , 18vw,9vw);
+    }
+    .progress {
+      clip: rect(0, 9vw, 18vw,0);
+    }
+    .dot span {
+      width: 1.8vw;
+      height: 1.8vw;
+    }
+  }
+}
+@media screen and (min-width:768px) {
+  #circleLoading >div {
+    .loader {
+      width: 14vw;
+    }
+  }
+  #circle2 {
+    .bar {
+      clip: rect(0 ,14vw , 14vw, 7vw);
+    }
+    .progress {
+      clip: rect(0, 7vw, 14vw, 0);
+    }
+    .dot span {
+      width: 1.4vw;
+      height: 1.4vw;
     }
   }
 }
