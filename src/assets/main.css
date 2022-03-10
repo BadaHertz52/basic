@@ -1087,6 +1087,22 @@ body {
   }
 }
 
+@media screen and (min-width: 1028px) {
+  #circleLoading > div .loader {
+    width: 10vw;
+  }
+  #circle2 .bar {
+    clip: rect(0, 10vw, 10vw, 5vw);
+  }
+  #circle2 .progress {
+    clip: rect(0, 5vw, 10vw, 0);
+  }
+  #circle2 .dot span {
+    width: 1vw;
+    height: 1vw;
+  }
+}
+
 body {
   overflow-x: hidden;
 }
