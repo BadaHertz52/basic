@@ -22,3 +22,11 @@ body{
   height: 100vh;
   padding-top: 5rem;
 }
+
+
+@media screen and (min-width:1440px) {
+  #root {
+    width: 1440px;
+    margin: 0 calc(50% - 720px)
+  }
+}
