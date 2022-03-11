@@ -1,32 +1,62 @@
 import React, { useState } from 'react';
 
 const Loading =()=>{
-  let circle3_spans =[]
+  const innerWidth = window.innerWidth;
+  let circle2_spans =[]
   let i =0;
-  while (i<20 && circle3_spans.length<20){
-    circle3_spans.push(<span key={`circle3_span_${i}`} id={`circle3_span_${i}`}></span>);
+  while (i<20 && circle2_spans.length<20){
+    circle2_spans.push(<span key={`circle2_span_${i}`} id={`circle2_span_${i}`}></span>);
     i++;
+  };
+
+  /*circle4*/
+  const circle4_circle2 =document.getElementById("circle4_circle2");
+  const circle4_per =document.getElementById("circle4_per"); 
+  let circle4_count =0;
+  const circle4_loader =setInterval(circle4_percent,80 );
+  function circle4_percent(){
+    if(circle4_count >=100){
+      clearInterval(circle4_loader);
+      circle4_per.textContent ="COMPLETE";
+      circle4_per.parentElement.classList.add("complete");
+    }else{
+      circle4_count =circle4_count+1;
+      circle4_circle2.animate([
+        {},
+        {
+          strokeDashoffset:"0"
+        }
+        ],{
+            duration: innerWidth>768 ? 160000 :320000,
+            easing:"linear",
+            fill:"both" 
+        });
+        circle4_per.parentElement.classList.contains("complete")&&
+        circle4_per.parentElement.classList.remove("complete");
+        circle4_per.textContent =String(circle4_count);
+      }
+
   };
 
   /*bar2*/
   const bar2  = document.getElementById("bar2");
   const bar2_bar   =document.getElementById("bar2_bar");
   const bar2_percent  =document.getElementById("bar2_percent");
-  const innerWidth = window.innerWidth;
+
   const [bar2Width, setBar2Width]=useState(0);
-  let percent =0;
+  let bar2_per =0;
   const loadingBar2  =setInterval(showPercentBar2, 50);
   function showPercentBar2 (){
     if(bar2!==null 
       && bar2_bar !==null 
       &&bar2_percent !==null ){
-        if(percent ===100 ){
+        if(bar2_per ===100 ){
           clearInterval(loadingBar2);
           bar2_percent.textContent ="Complete!!";
         }else {
-          percent =percent +2;
-          bar2_bar.style.width =  bar2Width *0.01 * percent + "px";
-          bar2_percent.textContent= percent +"%";
+          bar2_per =bar2_per +2;
+          bar2_bar.style.width =  bar2Width *0.01 * bar2_per + "px";
+          bar2_percent.textContent= bar2_per +"%";
       }
   }};
    const adjustWidth =()=>{
@@ -47,32 +77,55 @@ const Loading =()=>{
       <section id="circleLoading">
         <header>Circle</header>
         <div>
-          <div id="circle1" className='container'>
-            <div className='loader'>
-              <span></span>
+          <div className='circles'>
+            <div id="circle1" className='container'>
+              <div className='loader'>
+                <span></span>
+              </div>
+            </div>
+            <div id="circle2" className='container'>
+              <div className='loader'>
+                {circle2_spans}
+              </div>
+            </div>
+            <div id="circle3" className='container loader'>
+              <div className="inner "></div>
+              <div className="outer "></div>
+              <div className="loading ">
+                Loading...
+              </div>
+              <div className="circle ">
+                <div className="dot">
+                  <span></span>  
+                </div>
+                <div className="bar left">
+                  <div className="progress"></div>
+                </div>
+                <div className="bar right">
+                  <div className="progress"></div>
+                </div>  
+              </div>
             </div>
           </div>
-          <div id="circle2" className='container loader'>
-            <div className="inner "></div>
-            <div className="outer "></div>
-            <div className="loading ">
-              Loading...
-            </div>
-            <div className="circle ">
-              <div className="dot">
-                <span></span>  
+
+          <div className='circles'>
+            <div id="circle4" 
+              className='container'
+            >
+              <div className="loader">
+                <svg>
+                  <circle cx="45%" cy="45%" r="40%"/>
+                  <circle cx="45%" cy="45%" r="40%" id="circle4_circle2"/>
+                </svg>
+                <div className="percent">
+                  <span id="circle4_per">
+                    0
+                  </span>
+                  <span>
+                    %
+                  </span>
+                </div>
               </div>
-              <div className="bar left">
-                <div className="progress"></div>
-              </div>
-              <div className="bar right">
-                <div className="progress"></div>
-              </div>  
-            </div>
-          </div>
-          <div id="circle3" className='container'>
-            <div className='loader'>
-              {circle3_spans}
             </div>
           </div>
         </div>

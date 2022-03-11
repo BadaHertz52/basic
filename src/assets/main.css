@@ -18,6 +18,13 @@ body {
   padding-top: 5rem;
 }
 
+@media screen and (min-width: 1440px) {
+  #root {
+    width: 1440px;
+    margin: 0 calc(50% - 720px);
+  }
+}
+
 #loading {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -63,10 +70,18 @@ body {
 }
 
 #circleLoading > div {
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#circleLoading > div .circles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -76,6 +91,18 @@ body {
   aspect-ratio: 1/1;
   border-radius: 50%;
   position: relative;
+}
+
+#circle1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #circle1 .loader {
@@ -129,7 +156,329 @@ body {
   background-color: #ffff;
 }
 
-#circle2 .inner, #circle2 .outer, #circle2 .loader {
+#circle2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#circle2 .loader {
+  -webkit-animation: changeColor 10s linear infinite;
+          animation: changeColor 10s linear infinite;
+}
+
+@-webkit-keyframes changeColor {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+#circle2 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#circle2 span::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  background-color: #01c1fc;
+  -webkit-box-shadow: 0 0 10px #9df0ff, 0 0 30px #9df0ff;
+          box-shadow: 0 0 10px #9df0ff, 0 0 30px #9df0ff;
+}
+
+#circle2 span:nth-child(1) {
+  -webkit-transform: rotate(18deg);
+          transform: rotate(18deg);
+}
+
+#circle2 span:nth-child(1)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+#circle2 span:nth-child(2) {
+  -webkit-transform: rotate(36deg);
+          transform: rotate(36deg);
+}
+
+#circle2 span:nth-child(2)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+#circle2 span:nth-child(3) {
+  -webkit-transform: rotate(54deg);
+          transform: rotate(54deg);
+}
+
+#circle2 span:nth-child(3)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+#circle2 span:nth-child(4) {
+  -webkit-transform: rotate(72deg);
+          transform: rotate(72deg);
+}
+
+#circle2 span:nth-child(4)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+#circle2 span:nth-child(5) {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#circle2 span:nth-child(5)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+#circle2 span:nth-child(6) {
+  -webkit-transform: rotate(108deg);
+          transform: rotate(108deg);
+}
+
+#circle2 span:nth-child(6)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+#circle2 span:nth-child(7) {
+  -webkit-transform: rotate(126deg);
+          transform: rotate(126deg);
+}
+
+#circle2 span:nth-child(7)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+#circle2 span:nth-child(8) {
+  -webkit-transform: rotate(144deg);
+          transform: rotate(144deg);
+}
+
+#circle2 span:nth-child(8)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+#circle2 span:nth-child(9) {
+  -webkit-transform: rotate(162deg);
+          transform: rotate(162deg);
+}
+
+#circle2 span:nth-child(9)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
+#circle2 span:nth-child(10) {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#circle2 span:nth-child(10)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+#circle2 span:nth-child(11) {
+  -webkit-transform: rotate(198deg);
+          transform: rotate(198deg);
+}
+
+#circle2 span:nth-child(11)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
+}
+
+#circle2 span:nth-child(12) {
+  -webkit-transform: rotate(216deg);
+          transform: rotate(216deg);
+}
+
+#circle2 span:nth-child(12)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+#circle2 span:nth-child(13) {
+  -webkit-transform: rotate(234deg);
+          transform: rotate(234deg);
+}
+
+#circle2 span:nth-child(13)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+
+#circle2 span:nth-child(14) {
+  -webkit-transform: rotate(252deg);
+          transform: rotate(252deg);
+}
+
+#circle2 span:nth-child(14)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+
+#circle2 span:nth-child(15) {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+#circle2 span:nth-child(15)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+#circle2 span:nth-child(16) {
+  -webkit-transform: rotate(288deg);
+          transform: rotate(288deg);
+}
+
+#circle2 span:nth-child(16)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+
+#circle2 span:nth-child(17) {
+  -webkit-transform: rotate(306deg);
+          transform: rotate(306deg);
+}
+
+#circle2 span:nth-child(17)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+}
+
+#circle2 span:nth-child(18) {
+  -webkit-transform: rotate(324deg);
+          transform: rotate(324deg);
+}
+
+#circle2 span:nth-child(18)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+#circle2 span:nth-child(19) {
+  -webkit-transform: rotate(342deg);
+          transform: rotate(342deg);
+}
+
+#circle2 span:nth-child(19)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
+}
+
+#circle2 span:nth-child(20) {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+#circle2 span:nth-child(20)::before {
+  -webkit-animation: animatecircle2 2s linear infinite;
+          animation: animatecircle2 2s linear infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+@-webkit-keyframes animatecircle2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes animatecircle2 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+#circle3 .inner, #circle3 .outer, #circle3 .loader {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -139,24 +488,24 @@ body {
           box-shadow: inset 0 1px rgba(0, 0, 0, 0.3);
 }
 
-#circle2 .inner {
+#circle3 .inner {
   top: 50%;
   left: 50%;
   width: 80%;
   height: 80%;
   margin: -40% 0 0 -40%;
-  background-color: #f0f0f0;
+  background-color: #f8f8f8;
   -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.3);
           box-shadow: inset 0 1px rgba(0, 0, 0, 0.3);
 }
 
-#circle2 .circle {
+#circle3 .circle {
   z-index: 1;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-#circle2 .loading {
+#circle3 .loading {
   z-index: 10;
   position: absolute;
   top: 50%;
@@ -165,7 +514,7 @@ body {
           transform: translate(-50%, -50%);
 }
 
-#circle2 .bar {
+#circle3 .bar {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -174,7 +523,7 @@ body {
   border-radius: 50%;
 }
 
-#circle2 .progress {
+#circle3 .progress {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -182,45 +531,45 @@ body {
   border-radius: 50%;
 }
 
-#circle2 .progress,
-#circle2 .dot span {
-  background-color: #0f6fc9;
+#circle3 .progress,
+#circle3 .dot span {
+  background-color: #824ff8;
 }
 
-#circle2 .left .progress {
+#circle3 .left .progress {
   z-index: 1;
-  -webkit-animation: circle2 4s linear both;
-          animation: circle2 4s linear both;
+  -webkit-animation: circle3 4s linear both;
+          animation: circle3 4s linear both;
 }
 
-@-webkit-keyframes circle2 {
+@-webkit-keyframes circle3 {
   100% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }
 }
 
-@keyframes circle2 {
+@keyframes circle3 {
   100% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }
 }
 
-#circle2 .right {
+#circle3 .right {
   z-index: 3;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-#circle2 .right .progress {
-  -webkit-animation: circle2 4s linear both;
-          animation: circle2 4s linear both;
+#circle3 .right .progress {
+  -webkit-animation: circle3 4s linear both;
+          animation: circle3 4s linear both;
   -webkit-animation-delay: 4s;
           animation-delay: 4s;
 }
 
-#circle2 .dot {
+#circle3 .dot {
   z-index: 2;
   position: absolute;
   top: 50%;
@@ -234,7 +583,7 @@ body {
           animation: dot 8s linear both;
 }
 
-#circle2 .dot span {
+#circle3 .dot span {
   position: absolute;
   right: 0;
   border-radius: 50%;
@@ -276,7 +625,7 @@ body {
   }
 }
 
-#circle2 .loading {
+#circle3 .loading {
   -webkit-animation: loadingText 8s linear both;
           animation: loadingText 8s linear both;
   color: #242424;
@@ -337,7 +686,7 @@ body {
   }
 }
 
-#circle3 {
+#circle4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -347,316 +696,97 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-#circle3 .loader {
-  -webkit-animation: changeColor 10s linear infinite;
-          animation: changeColor 10s linear infinite;
+#circle4 .container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffff;
+  -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
 }
 
-@-webkit-keyframes changeColor {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-            filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(360deg);
-            filter: hue-rotate(360deg);
-  }
+#circle4 .loader, #circle4 svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes changeColor {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-            filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(360deg);
-            filter: hue-rotate(360deg);
-  }
+#circle4 svg {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
-#circle3 span {
+#circle4 circle {
+  fill: none;
+  stroke-width: 10%;
+  stroke: #000;
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  stroke-dasharray: calc(70 *2* 3.14);
+  stroke-dashoffset: calc(70 *2 * 3.14);
+  stroke-linecap: round;
+}
+
+#circle4 circle:nth-child(1) {
+  stroke-dasharray: 0;
+  stroke: #f3f3f3;
+}
+
+#circle4 circle:nth-child(2) {
+  stroke: #ffde25;
+}
+
+#circle4 .percent {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #111;
 }
 
-#circle3 span::before {
-  content: "";
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
-  background-color: #01c1fc;
-  -webkit-box-shadow: 0 0 10px #9df0ff, 0 0 30px #9df0ff;
-          box-shadow: 0 0 10px #9df0ff, 0 0 30px #9df0ff;
+#circle4 .complete #circle4_per {
+  font-size: 14px;
+  text-align: center;
 }
 
-#circle3 span:nth-child(1) {
-  -webkit-transform: rotate(18deg);
-          transform: rotate(18deg);
+#circle4 .complete span:nth-child(2) {
+  display: none;
 }
 
-#circle3 span:nth-child(1)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
+#circle4 #circle4_per {
+  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: block;
 }
 
-#circle3 span:nth-child(2) {
-  -webkit-transform: rotate(36deg);
-          transform: rotate(36deg);
-}
-
-#circle3 span:nth-child(2)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-
-#circle3 span:nth-child(3) {
-  -webkit-transform: rotate(54deg);
-          transform: rotate(54deg);
-}
-
-#circle3 span:nth-child(3)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-}
-
-#circle3 span:nth-child(4) {
-  -webkit-transform: rotate(72deg);
-          transform: rotate(72deg);
-}
-
-#circle3 span:nth-child(4)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-#circle3 span:nth-child(5) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-#circle3 span:nth-child(5)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-#circle3 span:nth-child(6) {
-  -webkit-transform: rotate(108deg);
-          transform: rotate(108deg);
-}
-
-#circle3 span:nth-child(6)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
-}
-
-#circle3 span:nth-child(7) {
-  -webkit-transform: rotate(126deg);
-          transform: rotate(126deg);
-}
-
-#circle3 span:nth-child(7)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.7s;
-          animation-delay: 0.7s;
-}
-
-#circle3 span:nth-child(8) {
-  -webkit-transform: rotate(144deg);
-          transform: rotate(144deg);
-}
-
-#circle3 span:nth-child(8)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-
-#circle3 span:nth-child(9) {
-  -webkit-transform: rotate(162deg);
-          transform: rotate(162deg);
-}
-
-#circle3 span:nth-child(9)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 0.9s;
-          animation-delay: 0.9s;
-}
-
-#circle3 span:nth-child(10) {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-#circle3 span:nth-child(10)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-#circle3 span:nth-child(11) {
-  -webkit-transform: rotate(198deg);
-          transform: rotate(198deg);
-}
-
-#circle3 span:nth-child(11)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.1s;
-          animation-delay: 1.1s;
-}
-
-#circle3 span:nth-child(12) {
-  -webkit-transform: rotate(216deg);
-          transform: rotate(216deg);
-}
-
-#circle3 span:nth-child(12)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
-}
-
-#circle3 span:nth-child(13) {
-  -webkit-transform: rotate(234deg);
-          transform: rotate(234deg);
-}
-
-#circle3 span:nth-child(13)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.3s;
-          animation-delay: 1.3s;
-}
-
-#circle3 span:nth-child(14) {
-  -webkit-transform: rotate(252deg);
-          transform: rotate(252deg);
-}
-
-#circle3 span:nth-child(14)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.4s;
-          animation-delay: 1.4s;
-}
-
-#circle3 span:nth-child(15) {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-#circle3 span:nth-child(15)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-#circle3 span:nth-child(16) {
-  -webkit-transform: rotate(288deg);
-          transform: rotate(288deg);
-}
-
-#circle3 span:nth-child(16)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.6s;
-          animation-delay: 1.6s;
-}
-
-#circle3 span:nth-child(17) {
-  -webkit-transform: rotate(306deg);
-          transform: rotate(306deg);
-}
-
-#circle3 span:nth-child(17)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.7s;
-          animation-delay: 1.7s;
-}
-
-#circle3 span:nth-child(18) {
-  -webkit-transform: rotate(324deg);
-          transform: rotate(324deg);
-}
-
-#circle3 span:nth-child(18)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
-}
-
-#circle3 span:nth-child(19) {
-  -webkit-transform: rotate(342deg);
-          transform: rotate(342deg);
-}
-
-#circle3 span:nth-child(19)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 1.9s;
-          animation-delay: 1.9s;
-}
-
-#circle3 span:nth-child(20) {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-
-#circle3 span:nth-child(20)::before {
-  -webkit-animation: animateCircle3 2s linear infinite;
-          animation: animateCircle3 2s linear infinite;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
-@-webkit-keyframes animateCircle3 {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  80%, 100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-}
-
-@keyframes animateCircle3 {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  80%, 100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
+#circle4 span:nth-child(2) {
+  color: #999;
 }
 
 #floatingLoading {
@@ -1023,6 +1153,22 @@ body {
   color: #3d4449;
 }
 
+@media screen and (min-width: 425px) {
+  #circleLoading > div .loader {
+    width: 18vw;
+  }
+  #circle3 .bar {
+    clip: rect(0, 18vw, 18vw, 9vw);
+  }
+  #circle3 .progress {
+    clip: rect(0, 9vw, 18vw, 0);
+  }
+  #circle3 .dot span {
+    width: 1.8vw;
+    height: 1.8vw;
+  }
+}
+
 @media screen and (min-width: 700px) {
   #floatingLoading > div {
     -webkit-box-orient: horizontal;
@@ -1055,51 +1201,47 @@ body {
   }
 }
 
-@media screen and (min-width: 425px) {
-  #circleLoading > div .loader {
-    width: 18vw;
-  }
-  #circle2 .bar {
-    clip: rect(0, 18vw, 18vw, 9vw);
-  }
-  #circle2 .progress {
-    clip: rect(0, 9vw, 18vw, 0);
-  }
-  #circle2 .dot span {
-    width: 1.8vw;
-    height: 1.8vw;
-  }
-}
-
 @media screen and (min-width: 768px) {
   #circleLoading > div .loader {
     width: 14vw;
   }
-  #circle2 .bar {
+  #circle3 .bar {
     clip: rect(0, 14vw, 14vw, 7vw);
   }
-  #circle2 .progress {
+  #circle3 .progress {
     clip: rect(0, 7vw, 14vw, 0);
   }
-  #circle2 .dot span {
+  #circle3 .dot span {
     width: 1.4vw;
     height: 1.4vw;
   }
+  #circle4 #circle4_per {
+    font-size: 1.5rem;
+  }
+  #circle4 .complete #circle4_per {
+    font-size: 1rem;
+  }
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (min-width: 1024px) {
   #circleLoading > div .loader {
     width: 10vw;
   }
-  #circle2 .bar {
+  #circle3 .bar {
     clip: rect(0, 10vw, 10vw, 5vw);
   }
-  #circle2 .progress {
+  #circle3 .progress {
     clip: rect(0, 5vw, 10vw, 0);
   }
-  #circle2 .dot span {
+  #circle3 .dot span {
     width: 1vw;
     height: 1vw;
+  }
+  #circle4 #circle4_per {
+    font-size: 2rem;
+  }
+  #circle4 .complete #circle4_per {
+    font-size: 1.2rem;
   }
 }
 
@@ -1121,6 +1263,13 @@ body {
   width: 100vw;
   height: 100vh;
   padding-top: 5rem;
+}
+
+@media screen and (min-width: 1440px) {
+  #root {
+    width: 1440px;
+    margin: 0 calc(50% - 720px);
+  }
 }
 
 #sidebar {

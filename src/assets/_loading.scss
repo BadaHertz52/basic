@@ -32,8 +32,12 @@
 }
 
 #circleLoading >div {
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  .circles {
+    display: flex;
+    justify-content: space-around;
+  }
   .loader {
     width: 20vw;
     aspect-ratio: 1/1;
@@ -42,6 +46,9 @@
   }
 }
 #circle1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .loader {
     background-color:rgb(224, 239, 250) ;
     animation: loading 2s linear infinite;
@@ -74,8 +81,67 @@
   }
 }
 
+
 #circle2 {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    animation: changeColor 10s linear infinite;
+  }
+  @keyframes changeColor {
+    0%
+    {
+      filter:hue-rotate(0deg)
+    }
+    100%
+    {
+      filter:hue-rotate(360deg)
+    }
+  }
+  span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+
+    &::before{
+      content: "";
+      position: absolute;
+      top:10%;
+      left:10%;
+      width: 15%;
+      height:15% ;
+      border-radius: 50%;
+      background-color:#01c1fc ;
+      box-shadow: 0 0 10px #9df0ff,
+      0 0 30px #9df0ff
+      ;
+    }
+  }
+  @for $i from 1 through 20 {
+    span:nth-child(#{$i}){
+      transform: rotate( 18deg * $i );
+      &::before {
+        animation: animatecircle2 2s linear infinite;
+        animation-delay:0.1s * $i;
+      }
+    }
+  }
+  @keyframes animatecircle2 {
+    0%
+    {
+      transform: scale(1);
+    }
+    80%,100% 
+    {
+      transform:scale(0);
+    }
+  }
+}
+
+#circle3 {
   .inner , .outer , .loader {
     position: absolute;
     width: 100%;
@@ -90,7 +156,7 @@
     width: 80%;
     height: 80%;
     margin: -40% 0 0 -40%;
-    background-color:#f0f0f0 ;
+    background-color:#f8f8f8 ;
     box-shadow: inset 0 1px rgba(0,0,0, 0.3);
   }
   .circle {
@@ -121,14 +187,14 @@
   }
   .progress ,
   .dot span{
-    background-color:#0f6fc9;
+    background-color:#824ff8;
   }
 
   .left .progress {
     z-index: 1;
-    animation: circle2 4s linear both;
+    animation: circle3 4s linear both;
   }
-  @keyframes circle2 {
+  @keyframes circle3 {
     100%{
       transform: rotate(180deg);
     }
@@ -137,7 +203,7 @@
     z-index: 3;
     transform: rotate(180deg);
     .progress{
-      animation: circle2 4s linear both;
+      animation: circle3 4s linear both;
       animation-delay: 4s ;
     }
   }
@@ -205,62 +271,77 @@
   }
 }
 
-#circle3 {
+#circle4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  .loader {
-    animation: changeColor 10s linear infinite;
-  }
-  @keyframes changeColor {
-    0%
-    {
-      filter:hue-rotate(0deg)
-    }
-    100%
-    {
-      filter:hue-rotate(360deg)
-    }
-  }
-  span{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height:100%;
+  height: 100%;
+  width: 100%;
+  .container{
+    position: relative;
+    display: flex;
 
-    &::before{
-      content: "";
-      position: absolute;
-      top:10%;
-      left:10%;
-      width: 15%;
-      height:15% ;
-      border-radius: 50%;
-      background-color:#01c1fc ;
-      box-shadow: 0 0 10px #9df0ff,
-      0 0 30px #9df0ff
-      ;
-    }
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.02);
   }
-  @for $i from 1 through 20 {
-    span:nth-child(#{$i}){
-      transform: rotate( 18deg * $i );
-      &::before {
-        animation: animateCircle3 2s linear infinite;
-        animation-delay:0.1s * $i;
-      }
-    }
+.loader , svg{
+  position: relative;
+  width:100%;
+  height: 100%;
+}
+svg{
+  transform: rotate(-90deg);
+}
+circle {
+  fill: none;
+  stroke-width:10% ;
+  stroke: #000; 
+  transform: translate(5px , 5px);
+  stroke-dasharray: calc(70 *2* 3.14 );
+  stroke-dashoffset: calc(70 *2 * 3.14);
+  stroke-linecap: round;
+  &:nth-child(1){
+    stroke-dasharray: 0;
+    stroke: #f3f3f3;
   }
-  @keyframes animateCircle3 {
-    0%
-    {
-      transform: scale(1);
+  &:nth-child(2){
+    stroke: #ffde25;
+  }
+}
+.percent {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+}
+
+.complete {
+  #circle4_per{
+  font-size :14px;
+  text-align: center;
+  }
+  span:nth-child(2){
+    display: none;
+  }
+}
+#circle4_per {
+    font : {
+      weight:700;
+      size:1.2rem
     }
-    80%,100% 
-    {
-      transform:scale(0);
-    }
+    font-weight: 700;
+    display: block;
+  }
+  span:nth-child(2){
+    color: #999; 
   }
 }
 
@@ -466,6 +547,29 @@
     color: $black;
   }
 }
+
+
+
+@media screen and (min-width:425px) {
+  #circleLoading >div {
+    .loader {
+      width: 18vw;
+    }
+  }
+  #circle3 {
+    .bar {
+      clip: rect(0 ,18vw , 18vw,9vw);
+    }
+    .progress {
+      clip: rect(0, 9vw, 18vw,0);
+    }
+    .dot span {
+      width: 1.8vw;
+      height: 1.8vw;
+    }
+  }
+}
+
 @media screen and (min-width:700px) {
   #floatingLoading {
     &>div{
@@ -496,33 +600,13 @@
   }
 }
 
-
-@media screen and (min-width:425px) {
-  #circleLoading >div {
-    .loader {
-      width: 18vw;
-    }
-  }
-  #circle2 {
-    .bar {
-      clip: rect(0 ,18vw , 18vw,9vw);
-    }
-    .progress {
-      clip: rect(0, 9vw, 18vw,0);
-    }
-    .dot span {
-      width: 1.8vw;
-      height: 1.8vw;
-    }
-  }
-}
 @media screen and (min-width:768px) {
   #circleLoading >div {
     .loader {
       width: 14vw;
     }
   }
-  #circle2 {
+  #circle3 {
     .bar {
       clip: rect(0 ,14vw , 14vw, 7vw);
     }
@@ -534,14 +618,24 @@
       height: 1.4vw;
     }
   }
+  #circle4{
+    #circle4_per{
+      font-size: 1.5rem;
+    }
+    .complete {
+      #circle4_per{
+      font-size :1rem;
+      }
+    }
+  }
 }
-@media screen and (min-width:1028px) {
+@media screen and (min-width:1024px) {
   #circleLoading >div {
     .loader {
       width: 10vw;
     }
   }
-  #circle2 {
+  #circle3 {
     .bar {
       clip: rect(0 ,10vw , 10vw, 5vw);
     }
@@ -551,6 +645,17 @@
     .dot span {
       width: 1vw;
       height: 1vw;
+    }
+  }
+
+  #circle4{
+    #circle4_per {
+      font-size: 2rem;
+    }
+    .complete {
+      #circle4_per{
+      font-size :1.2rem;
+      }
     }
   }
 }
