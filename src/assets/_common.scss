@@ -24,9 +24,9 @@ body{
 }
 
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width:2000px) {
   #root {
-    width: 1440px;
-    margin: 0 calc(50% - 720px)
+    width: 2000px;
+    margin: 0 calc(50% - 1000px)
   }
 }
