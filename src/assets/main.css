@@ -18,10 +18,10 @@ body {
   padding-top: 5rem;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 2000px) {
   #root {
-    width: 1440px;
-    margin: 0 calc(50% - 720px);
+    width: 2000px;
+    margin: 0 calc(50% - 1000px);
   }
 }
 
@@ -87,8 +87,8 @@ body {
 }
 
 #circleLoading > div .loader {
-  width: 20vw;
-  aspect-ratio: 1/1;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   position: relative;
 }
@@ -512,6 +512,7 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  font-size: 10px;
 }
 
 #circle3 .bar {
@@ -519,7 +520,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  clip: rect(0, 20vw, 20vw, 10vw);
+  clip: rect(0, 10vw, 10vw, 5vw);
   border-radius: 50%;
 }
 
@@ -527,13 +528,12 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  clip: rect(0, 10vw, 20vw, 0);
+  clip: rect(0, 5vw, 10vw, 0);
   border-radius: 50%;
 }
 
-#circle3 .progress,
-#circle3 .dot span {
-  background-color: #824ff8;
+#circle3 .progress {
+  background-color: #42a5f5;
 }
 
 #circle3 .left .progress {
@@ -579,19 +579,32 @@ body {
   margin-top: -4%;
   -webkit-transform-origin: 0% 50%;
           transform-origin: 0% 50%;
-  -webkit-animation: dot 8s linear both;
-          animation: dot 8s linear both;
 }
 
-#circle3 .dot span {
+#circle3 .dot svg {
   position: absolute;
+  top: 0;
   right: 0;
-  border-radius: 50%;
-  width: 2vw;
-  height: 2vw;
+  border-radius: 100%;
+  width: 20%;
+  height: 100%;
 }
 
-@-webkit-keyframes dot {
+#circle3 .dot circle {
+  fill: #42a5f5;
+}
+
+#circle3 .dot:nth-child(1) {
+  -webkit-animation: dot1 8s linear both;
+          animation: dot1 8s linear both;
+}
+
+#circle3 .dot:nth-child(2) {
+  -webkit-animation: dot2 8s linear both;
+          animation: dot2 8s linear both;
+}
+
+@-webkit-keyframes dot1 {
   0% {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
@@ -599,16 +612,16 @@ body {
   50% {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    z-index: 4;
+    z-index: 5;
   }
   100% {
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
-    z-index: 4;
+    z-index: 5;
   }
 }
 
-@keyframes dot {
+@keyframes dot1 {
   0% {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
@@ -616,12 +629,36 @@ body {
   50% {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    z-index: 4;
+    z-index: 5;
   }
   100% {
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
-    z-index: 4;
+    z-index: 5;
+  }
+}
+
+@-webkit-keyframes dot2 {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    z-index: 5;
+  }
+}
+
+@keyframes dot2 {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    z-index: 5;
   }
 }
 
@@ -686,7 +723,7 @@ body {
   }
 }
 
-#circle4 {
+#percent_circle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -700,7 +737,7 @@ body {
   width: 100%;
 }
 
-#circle4 .container {
+#percent_circle .container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -720,38 +757,42 @@ body {
           box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
 }
 
-#circle4 .loader, #circle4 svg {
+#percent_circle .loader, #percent_circle svg {
   position: relative;
+}
+
+#percent_circle svg {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   width: 100%;
   height: 100%;
 }
 
-#circle4 svg {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-}
-
-#circle4 circle {
+#percent_circle circle {
   fill: none;
   stroke-width: 10%;
   stroke: #000;
   -webkit-transform: translate(5px, 5px);
           transform: translate(5px, 5px);
-  stroke-dasharray: calc(70 *2* 3.14);
-  stroke-dashoffset: calc(70 *2 * 3.14);
+  stroke-dasharray: calc(40% *2* 3.14);
+  stroke-dashoffset: calc(40% *2 * 3.14);
   stroke-linecap: round;
 }
 
-#circle4 circle:nth-child(1) {
+#percent_circle circle:nth-child(1) {
   stroke-dasharray: 0;
   stroke: #f3f3f3;
 }
 
-#circle4 circle:nth-child(2) {
+#percent_circle circle:nth-child(2) {
   stroke: #ffde25;
 }
 
-#circle4 .percent {
+#percent_circle #circle5:nth-child(2) {
+  stroke-dasharray: calc();
+}
+
+#percent_circle .percent {
   position: absolute;
   top: 0;
   left: 0;
@@ -769,23 +810,23 @@ body {
   color: #111;
 }
 
-#circle4 .complete #circle4_per {
+#percent_circle .complete span:nth-child(1) {
   font-size: 14px;
   text-align: center;
 }
 
-#circle4 .complete span:nth-child(2) {
+#percent_circle .complete span:nth-child(2) {
   display: none;
 }
 
-#circle4 #circle4_per {
+#percent_circle span:nth-child(1) {
   font-weight: 700;
   font-size: 1.2rem;
   font-weight: 700;
   display: block;
 }
 
-#circle4 span:nth-child(2) {
+#percent_circle span:nth-child(2) {
   color: #999;
 }
 
@@ -1154,18 +1195,8 @@ body {
 }
 
 @media screen and (min-width: 425px) {
-  #circleLoading > div .loader {
-    width: 18vw;
-  }
-  #circle3 .bar {
-    clip: rect(0, 18vw, 18vw, 9vw);
-  }
-  #circle3 .progress {
-    clip: rect(0, 9vw, 18vw, 0);
-  }
-  #circle3 .dot span {
-    width: 1.8vw;
-    height: 1.8vw;
+  #circle3 .loading {
+    font-size: 14px;
   }
 }
 
@@ -1202,46 +1233,40 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  #circleLoading > div .loader {
-    width: 14vw;
+  #circle3 .loading {
+    font-size: 1rem;
   }
-  #circle3 .bar {
-    clip: rect(0, 14vw, 14vw, 7vw);
-  }
-  #circle3 .progress {
-    clip: rect(0, 7vw, 14vw, 0);
-  }
-  #circle3 .dot span {
-    width: 1.4vw;
-    height: 1.4vw;
-  }
-  #circle4 #circle4_per {
+  #percent_circle span:nth-child(1) {
     font-size: 1.5rem;
   }
-  #circle4 .complete #circle4_per {
+  #percent_circle .complete span:nth-child(1) {
     font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  #circleLoading > div .loader {
-    width: 10vw;
+  #circle3 .loading {
+    font-size: 1.2rem;
   }
-  #circle3 .bar {
-    clip: rect(0, 10vw, 10vw, 5vw);
-  }
-  #circle3 .progress {
-    clip: rect(0, 5vw, 10vw, 0);
-  }
-  #circle3 .dot span {
-    width: 1vw;
-    height: 1vw;
-  }
-  #circle4 #circle4_per {
+  #percent_circle span:nth-child(1) {
     font-size: 2rem;
   }
-  #circle4 .complete #circle4_per {
+  #percent_circle .complete span:nth-child(1) {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  #circleLoading > div .loader {
+    width: 200px;
+    height: 200px;
+  }
+  #circle3 .bar {
+    clip: rect(0, 200px, 200px, 100px);
+    border-radius: 50%;
+  }
+  #circle3 .progress {
+    clip: rect(0, 100px, 200px, 0);
   }
 }
 
@@ -1265,10 +1290,10 @@ body {
   padding-top: 5rem;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 2000px) {
   #root {
-    width: 1440px;
-    margin: 0 calc(50% - 720px);
+    width: 2000px;
+    margin: 0 calc(50% - 1000px);
   }
 }
 

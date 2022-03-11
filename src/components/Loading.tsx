@@ -27,7 +27,7 @@ const Loading =()=>{
           strokeDashoffset:"0"
         }
         ],{
-            duration: innerWidth>768 ? 160000 :320000,
+            duration:  140000,
             easing:"linear",
             fill:"both" 
         });
@@ -96,7 +96,14 @@ const Loading =()=>{
               </div>
               <div className="circle ">
                 <div className="dot">
-                  <span></span>  
+                  <svg>
+                    <circle cx="50%" cy="50%" r="50%"/>
+                  </svg>  
+                </div>
+                <div className="dot">
+                  <svg>
+                    <circle cx="50%" cy="50%" r="50%"/>
+                  </svg>  
                 </div>
                 <div className="bar left">
                   <div className="progress"></div>
@@ -108,14 +115,14 @@ const Loading =()=>{
             </div>
           </div>
 
-          <div className='circles'>
+          <div className='circles' id="percent_circle">
             <div id="circle4" 
               className='container'
             >
               <div className="loader">
                 <svg>
                   <circle cx="45%" cy="45%" r="40%"/>
-                  <circle cx="45%" cy="45%" r="40%" id="circle4_circle2"/>
+                  <circle cx="45%" cy="45%" r="40%"  id="circle4_circle2"/>
                 </svg>
                 <div className="percent">
                   <span id="circle4_per">
@@ -127,6 +134,7 @@ const Loading =()=>{
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </section>
