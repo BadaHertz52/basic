@@ -134,7 +134,42 @@ const Loading =()=>{
                 </div>
               </div>
             </div>
-            
+            <div id="circle5" 
+              className='container'
+            >
+              <div className="loader">
+                <svg>
+                  <circle cx="45%" cy="45%" r="40%"/>
+                  <circle cx="45%" cy="45%" r="40%" />
+                </svg>
+                <div className="percent">
+                  <span id="circle4_per">
+                    13
+                  </span>
+                  <span>
+                    %
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div id="circle6" 
+              className='container'
+            >
+              <div className="loader">
+                <svg>
+                  <circle cx="45%" cy="45%" r="40%"/>
+                  <circle cx="45%" cy="45%" r="40%" />
+                </svg>
+                <div className="percent">
+                  <span id="circle4_per">
+                    60
+                  </span>
+                  <span>
+                    %
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

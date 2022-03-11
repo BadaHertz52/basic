@@ -788,8 +788,12 @@ body {
   stroke: #ffde25;
 }
 
-#percent_circle #circle5:nth-child(2) {
-  stroke-dasharray: calc();
+#percent_circle #circle5 circle:nth-child(2) {
+  stroke-dashoffset: calc(40% *2* 3.14 *0.87);
+}
+
+#percent_circle #circle6 circle:nth-child(2) {
+  stroke-dashoffset: calc(40% *2* 3.14 *0.40);
 }
 
 #percent_circle .percent {
