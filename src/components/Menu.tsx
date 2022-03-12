@@ -7,7 +7,7 @@ const Menu=()=>{
     <div id="menus">
       <section id="menu1">
         <header>Type 1.</header>
-        <div>
+        <div className='menuBox'>
           <div className='length'>
             <div className='nav'>
               <div className='name'>
@@ -50,7 +50,7 @@ const Menu=()=>{
       </section>
       <section id="menu2">
         <header>Type 2.</header>
-        <div>
+        <div className='menuBox'>
           <div className='length'>
             <div className='name'>
               Bada Cafe
@@ -95,7 +95,7 @@ const Menu=()=>{
       </section>
       <section id="menu3">
         <header>Type 3.</header>
-        <div>
+        <div className='menuBox'>
           <div className='length'>
             <div className='name'>
               Bada Cafe  
