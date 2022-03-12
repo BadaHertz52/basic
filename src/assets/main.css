@@ -13,9 +13,13 @@ body {
 }
 
 #main {
-  width: 100vw;
-  height: 100vh;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
   padding-top: 5rem;
+  width: 100%;
 }
 
 @media screen and (min-width: 2000px) {
@@ -1289,9 +1293,13 @@ body {
 }
 
 #main {
-  width: 100vw;
-  height: 100vh;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
   padding-top: 5rem;
+  width: 100%;
 }
 
 @media screen and (min-width: 2000px) {
@@ -1305,7 +1313,11 @@ body {
   position: relative;
   margin: 0;
   width: 30vw;
-  height: 100vh;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
