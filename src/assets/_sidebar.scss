@@ -4,7 +4,8 @@
   position: relative;
   margin:0;
   width: 30vw;
-  height: 100vh;
+  flex-grow: 0;
+  flex-shrink: 0;
   transition: 1s;
 }
 #navMenu{

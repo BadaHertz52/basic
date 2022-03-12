@@ -12,12 +12,9 @@ const Sidebar =()=>{
     setOpen(!open);
     if(sidebar !==null ){
       const width =window.innerWidth * 0.3;
-      if(open){
-        sidebar.style.position ="sticky";
-        sidebar.style.top="0" ;  
+      if(open){;  
         sidebar.style.marginLeft = "0px"
       }else {
-        sidebar.style.position ="relative";
         sidebar.style.marginLeft = `-${width}px`;
       }     
 
