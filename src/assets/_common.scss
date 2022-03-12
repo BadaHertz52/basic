@@ -24,7 +24,19 @@ body{
   width: 100%;
 }
 
-
+section header {
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  width: 90%;
+  border-bottom: 2px solid $grey;
+  color : $black;
+  font-weight: bold;
+  padding: 6px;
+  margin : {
+    left: 1rem;
+    bottom:1rem
+  }
+}
 @media screen and (min-width:2000px) {
   #root {
     width: 2000px;
