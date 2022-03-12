@@ -58,3 +58,14 @@
     color:$grapefruit
   }
 }
+
+@media screen and (min-width:325px) {
+  #sidebar {
+    width: 25vw;
+  }
+}
+@media screen and (min-width:768px) {
+  #sidebar {
+    width: 20vw;
+  }
+}
