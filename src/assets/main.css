@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap");
 body {
   overflow-x: hidden;
 }
@@ -20,6 +21,13 @@ body {
       flex-shrink: 1;
   padding-top: 5rem;
   width: 100%;
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
 }
 
 @media screen and (min-width: 2000px) {
@@ -1300,6 +1308,199 @@ body {
       flex-shrink: 1;
   padding-top: 5rem;
   width: 100%;
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+@media screen and (min-width: 2000px) {
+  #root {
+    width: 2000px;
+    margin: 0 calc(50% - 1000px);
+  }
+}
+
+@font-face {
+  font-family: 'Sansita Swashed', cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap");
+  font-style: normal;
+  font-weight: normal;
+}
+
+#menus section {
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#menus .menuBox {
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1rem;
+}
+
+#menus .length, #menus .transverse {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fcf9ef;
+  border-radius: 15px;
+}
+
+#menus .length {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+  -webkit-box-shadow: 0px 0px 13px -7px #000000, 11px 0px 13px -2px rgba(195, 195, 195, 0.3);
+  box-shadow: 0px 0px 13px -7px #000000, 11px 0px 13px -2px rgba(195, 195, 195, 0.3);
+}
+
+#menus .transverse {
+  width: 80%;
+  margin: 0 10%;
+  height: 3rem;
+}
+
+#menus .transverse:nth-child(1) {
+  margin-bottom: 3rem;
+}
+
+#menus .name {
+  font-family: 'Sansita Swashed';
+  font-size: 1.2rem;
+}
+
+#menus .menubar {
+  padding: 0;
+}
+
+#menus .menubar li {
+  margin: 10px 0;
+}
+
+#menus .menubar,
+#menus .logIn span {
+  font-size: 1rem;
+}
+
+#menus .logIn {
+  padding: 8px 14px;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+          box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fafafa), to(#ebe6e6));
+  background: linear-gradient(to bottom, #fafafa 5%, #ebe6e6 100%);
+  background-color: #ededed;
+  border-radius: 25px;
+  border: 1px solid #dcdcdc;
+  position: relative;
+}
+
+#menus .logIn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff0ce), to(#fcd174));
+  background: linear-gradient(to bottom, #fff0ce 2%, #fcd174 100%);
+}
+
+#menus .logIn span {
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+}
+
+#menus #menu1 .menuBox {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#menus #menu1 .menuIcon {
+  position: absolute;
+  top: 0;
+  right: -1.6rem;
+  font-size: 1.5rem;
+  color: #ffb806;
+}
+
+#menus #menu2 .menuBox {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  #menus .menuBox {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #menus .transverse {
+    width: 45%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#root li {
+  list-style: none;
+}
+
+#main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding-top: 5rem;
+  width: 100%;
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
 }
 
 @media screen and (min-width: 2000px) {
