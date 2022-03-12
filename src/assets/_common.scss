@@ -23,7 +23,12 @@ body{
   padding-top: 5rem;
   width: 100%;
 }
-
+button , .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
 
 @media screen and (min-width:2000px) {
   #root {
