@@ -6,7 +6,7 @@ const Menu=()=>{
   return(
     <div id="menus">
       <section id="menu1">
-        <header>Type 1.</header>
+        <header>Type 1. Hide</header>
         <div className='menuBox'>
           <div className='length'>
             <div className='nav'>
@@ -19,15 +19,15 @@ const Menu=()=>{
                 <li>About</li>
                 <li>Contact</li>
               </ul>
-              <div className='logIn'>
-                Log In
-              </div>
+              <button className='logIn'>
+                <span>Log In</span>
+              </button>
             </div>
             <div className='menuIcon'>
               <CgMenuRound/>
             </div>
           </div>
-          <div className='transverse'>
+          <div className='length'>
             <div className="nav">
               <div className='name'>
                 Bada Cafe
@@ -38,9 +38,9 @@ const Menu=()=>{
                 <li>About</li>
                 <li>Contact</li>
               </ul>
-              <div className='logIn'>
-                Log In
-              </div>  
+              <button className='logIn'>
+                <span>Log In</span>
+              </button>  
             </div>
             <div className="menuIcon">
               <CgMenuRound/>
@@ -49,9 +49,9 @@ const Menu=()=>{
         </div>
       </section>
       <section id="menu2">
-        <header>Type 2.</header>
+        <header>Type 2. Drop</header>
         <div className='menuBox'>
-          <div className='length'>
+          <div className='transverse'>
             <div className='name'>
               Bada Cafe
             </div>
@@ -73,9 +73,9 @@ const Menu=()=>{
                 <span>Contact</span>
               </li>
             </ul>
-            <div className='logIn'>
-              Log In
-            </div>
+            <button className='logIn'>
+                <span>Log In</span>
+              </button>
           </div>
           <div className='transverse'>
             <div className='name'>
@@ -87,9 +87,9 @@ const Menu=()=>{
               <li>About</li>
               <li>Contact</li>
             </ul>
-            <div className='logIn'>
-              Log In
-            </div>
+            <button className='logIn'>
+                <span>Log In</span>
+              </button>
           </div>
         </div>
       </section>
@@ -106,9 +106,9 @@ const Menu=()=>{
               <li>About</li>
               <li>Contact</li>
             </ul>
-            <div className='logIn'>
-              Log In
-            </div>
+            <button className='logIn'>
+                <span>Log In</span>
+              </button>
           </div>
           <div className='transverse'>
             <div className='name'>
@@ -122,9 +122,9 @@ const Menu=()=>{
               <li>About</li>
               <li>Contact</li>
             </ul>
-            <div className='logIn'>
-              Log In
-            </div>
+            <button className='logIn'>
+                <span>Log In</span>
+            </button>
           </div>
         </div>
       </section>
