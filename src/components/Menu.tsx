@@ -6,7 +6,7 @@ const Menu=()=>{
   return(
     <div id="menus">
       <section id="menu1">
-        <header>type 1.</header>
+        <header>Type 1.</header>
         <div>
           <div className='length'>
             <div className='nav'>
@@ -49,7 +49,7 @@ const Menu=()=>{
         </div>
       </section>
       <section id="menu2">
-        <header>type 2.</header>
+        <header>Type 2.</header>
         <div>
           <div className='length'>
             <div className='name'>
@@ -94,7 +94,7 @@ const Menu=()=>{
         </div>
       </section>
       <section id="menu3">
-        <header>type 3.</header>
+        <header>Type 3.</header>
         <div>
           <div className='length'>
             <div className='name'>
