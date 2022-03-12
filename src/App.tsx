@@ -2,9 +2,10 @@ import React, { useEffect }from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Loading from './components/Loading';
 import Navigation from './components/Sidebar';
-import Home from './router/Home';
+import Home from './components/Home';
 import './assets/main.css';
 import Practice from './components/Practice';
+import Menu from './components/Menu';
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
           <Route 
             path="/basic/loading"
             element={<Loading/>}
+          />
+          <Route 
+            path="/basic/menu"
+            element={<Menu/>}
           />
           <Route
             path="/basic/practice"

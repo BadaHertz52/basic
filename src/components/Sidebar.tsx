@@ -43,6 +43,11 @@ const Sidebar =()=>{
                 Loading
               </button >
             </li>
+            <li>  
+              <button onClick={()=>(navigate('/basic/menu'))}>
+                Menu
+              </button >
+            </li>
           </ul>
         </div>
       </nav>
