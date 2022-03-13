@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 @font-face {
   font-family:'Sansita Swashed', cursive; 
   src: url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
@@ -9,12 +11,21 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'Playfair Display', serif;
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+}
+$orange :#ffb806;
+$light_black :rgb(65, 64, 64);
+
 #menus {
   section {
-    width: 100%;
+    width: 90%;
+    margin: 5% ;
     height: min-content;
     display: flex;
     flex-direction: column;
+    box-sizing: content-box;
   }
   .menuBox {
     width: 100%;
@@ -22,33 +33,37 @@
     display: flex;
     margin-top: 1rem;
   }
-
-  .length , .transverse{
+  .length, .transverse {
+    border: 1px solid rgb(194, 193, 193);
+    display: flex;
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+  }
+  .header , .side{
+    background-color:#fcf9ef;
+  }
+  .side{
     position: relative;
     display: flex;
-    background-color:#fcf9ef;
-    border-radius: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
-  .length {
-    width: fit-content;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    -webkit-box-shadow: 0px 0px 13px -7px #000000, 11px 0px 13px -2px rgba(195,195,195,0.3); 
-    box-shadow: 0px 0px 13px -7px #000000, 11px 0px 13px -2px rgba(195,195,195,0.3);
-  }
-  .transverse{
-    width: 80%;
-    margin: 0 10%;
-    height: 3rem;
-
-    &:nth-child(1){
-      margin-bottom: 3rem;
-    }
+  .main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    
   }
   .name {
     font-family:'Sansita Swashed' ;
-    font-size: 1.2rem;
+    font-weight: 700;
+    div:nth-child(1) {
+      display: flex;
+    }
+    svg{
+      color:rgb(24, 24, 23);
+      font-size: 11px;
+    }
   }
   .menubar {
     padding: 0;
@@ -57,22 +72,23 @@
       margin: 10px 0;
     }
   }
-  .menubar ,
-  .logIn span {
-    font-size: 1rem;
-  }
   .logIn {
-    padding: 8px 14px;
+    padding: 4px 14px;
     text-align: center;
     width: fit-content;
+    height: fit-content;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #fafafa 5%, #ebe6e6 100%);
-    background-color:#ededed;
+    background-color: transparent;
+    border: 2px solid rgb(65, 64, 64) ;
+    color:rgb(65, 64, 64);
     border-radius:25px;
-    border:1px solid #dcdcdc;
     position: relative;
     &:hover {
-      background:linear-gradient(to bottom, #fff0ce 2%, #fcd174 100%);
+    border:1px solid #ececec;
+    box-shadow: inset 0px 0px 2px  rgb(204, 203, 203);
+    color:#fff;
+    text-shadow: 1px 2px 4px  rgb(145, 145, 145);
+    background:$orange;
     }
     span{
       font-weight: 500;
@@ -80,19 +96,171 @@
       height: 100%;
     }
   }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-between;
+    &_section {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 5px;
+      text-align: center;
+  
+      &>div{
+        padding: 5% 0;
+        width: 100%;
+        font-family: "Playfair Display";
+        flex-shrink: 1;
+      }
+      img{
+        width: 100%;
+        height: auto;
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+    }
+  }
+  .length {
+    width: 100%;
+    .headder{
+      width: 100%;
+      display: none;
+    }
+    .side{
+      width: 25%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-direction: column;
+      align-content: center;
+      padding: 5%;
+      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3); 
+      box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3);
+      .logIn{
+        display: none;
+      }
+    }
+    .menubar ,
+    .logIn span {
+      font-size: 12px;
+    }
+    .name {
+      font-size: 14px;
+    }
+    ul{
+      margin-top:20%;
+    }
+    
+  
+  }
+  
+  .transverse {
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    .side {
+      width:100%;
+      height: fit-content;
+      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 0px 0px 13px -2px rgba(195,195,195,0.3); 
+      box-shadow: 0px 0px 13px -7px #c7c7c780, 0px 0px 13px -2px rgba(195,195,195,0.3);
+      .menuIcon{
+        display: none;
+      }
+    }
+    .nav{
+      display: flex;
+      width: 100%;
+      padding:10px ;
+      box-sizing: content-box;
+      justify-content: space-between;
+    }
+    .menubar{
+      margin: 0;
+    } 
+    li {
+      float:left;
+      margin: 0;
+      margin-right: 5px;
+    }
+    li, .logIn {
+      font-size: 8px;
+    }
+
+    .logIn{
+      padding: 0 5px;
+    }
+    &:nth-child(1){
+      margin-bottom: 3rem;
+    }
+  }
   #menu1 {
     .menuBox {
+      flex-direction: column;
       justify-content: space-around;
+    }
+    .length:nth-child(1){
+      flex-direction: column;
+      .header{
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        padding: 5% 5%;
+        .menuIcon{
+          position: relative;
+          top:0;
+          right: 0;
+        }
+        .name {
+          display: flex;
+          align-items: center;
+          & , svg {
+            font-size: 100%;
+          }
+        }
+        .logIn{
+          font-size: 10px;
+          padding: 4px 8px
+        }
+        &>div:nth-child(2){
+          display: flex;
+          align-content: center;
+        }
+
+      }
+      .side{
+        display: none;
+        position: absolute;
+        top:0;
+        right: 0;
+        .menuIcon {
+          display: none;
+        }
+      }
+    }
+    .length:nth-child(2){
+      margin:1rem 0;
     }
 
     .menuIcon {
       position: absolute;
       top:0;
       right: -1.6rem;
+      background-color: transparent;
+      border-radius: 50%;
+  
       font : {
         size: 1.5rem;
       }
-      color:#ffb806;
+      color : $light_black;
+      &:hover {
+        color: $orange;
+      }
     }
   }
   #menu2 {
@@ -101,6 +269,43 @@
     }
   }
 
+
+  @media screen and (min-width:375px) {
+    .transverse{
+      li, .logIn {
+      font-size: 10px;
+    }
+    }
+  }
+  @media screen and (min-width:425px) {
+    .transverse{
+      li, .logIn {
+      font-size: 12px;
+    }
+    }
+  }
+  @media screen and (min-width:550px) {
+    .transverse{
+      li, .logIn {
+      font-size: 14px;
+    }
+    }
+  }
+  @media screen and (min-width:768px) {
+    .transverse{
+      li, .logIn {
+      font-size: 1rem;
+    }
+    }
+    #menu1 {
+      .menuBox{
+        flex-direction: row;
+      }
+    }
+    .length {
+      width: 45%;
+    }
+  }
   @media screen and (min-width: 1024px) {
     .menuBox {
       flex-direction: row;
