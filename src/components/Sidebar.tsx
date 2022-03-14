@@ -11,7 +11,13 @@ const Sidebar =()=>{
   const onMenu =()=>{
     setOpen(!open);
     if(sidebar !==null ){
-      const width =window.innerWidth * 0.3;
+      const innerWidth = window.innerWidth;
+      const width = innerWidth >=1024 ? 
+      innerWidth * 0.15 :
+      innerWidth >=768?
+      innerWidth * 0.2 :
+      innerWidth * 0.3;
+      
       if(open){;  
         sidebar.style.marginLeft = "0px"
       }else {
