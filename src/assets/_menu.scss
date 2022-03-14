@@ -17,6 +17,7 @@
 }
 $orange :#ffb806;
 $light_black :rgb(65, 64, 64);
+$ivory :#fcf9ef;
 
 #menus {
   section {
@@ -37,11 +38,11 @@ $light_black :rgb(65, 64, 64);
     border: 1px solid rgb(194, 193, 193);
     display: flex;
     width: 100%;
-    height: 250px;
+    aspect-ratio: 16/9;
     overflow-y: scroll;
   }
   .header , .side{
-    background-color:#fcf9ef;
+    background-color:$ivory;
   }
   .side{
     position: relative;
@@ -52,7 +53,7 @@ $light_black :rgb(65, 64, 64);
   .main {
     flex-grow: 1;
     flex-shrink: 1;
-    
+    background-color: #eeeeee;
   }
   .name {
     font-family:'Sansita Swashed' ;
@@ -67,13 +68,15 @@ $light_black :rgb(65, 64, 64);
   }
   .menubar {
     padding: 0;
-    
     li{
-      margin: 10px 0;
+      margin-top:1rem;
+      display: flex;
+      span{
+        margin-left: 5px;
+      }
     }
   }
   .logIn {
-    padding: 4px 14px;
     text-align: center;
     width: fit-content;
     height: fit-content;
@@ -90,17 +93,12 @@ $light_black :rgb(65, 64, 64);
     text-shadow: 1px 2px 4px  rgb(145, 145, 145);
     background:$orange;
     }
-    span{
-      font-weight: 500;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   .main {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-shrink: 1;
     justify-content: space-between;
     &_section {
@@ -109,7 +107,7 @@ $light_black :rgb(65, 64, 64);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-size: 5px;
+      font-size: 10px;
       text-align: center;
   
       &>div{
@@ -121,42 +119,95 @@ $light_black :rgb(65, 64, 64);
       img{
         width: 100%;
         height: auto;
-        flex-grow: 1;
-        flex-shrink: 0;
       }
     }
   }
   .length {
     width: 100%;
-    .headder{
+    .header{
       width: 100%;
       display: none;
     }
+    .nav{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .side.on , .side.left.on{
+      display: block;
+      width: 20%;
+      .nav{
+        display: block;
+      }
+    }
+    .side.left {
+      display: block;
+      width: 5%;
+
+      .menubar {
+        margin-top:20%;
+        li {
+          display: flex;
+          align-content: center;
+          span {
+            display:none ;
+          }
+        }
+      }
+      .logIn{
+        display: none;
+      }
+      .name {
+        span{
+          display: none;
+        }
+      }
+    }
+    .side.left.on {
+      .menubar {
+        li {
+          span {
+            display:block ;
+          }
+        }
+      }
+      .logIn{
+        display: block;
+      }
+      .name {
+        span {
+          display: block;
+        }
+      }
+    }
     .side{
-      width: 25%;
-      flex-grow: 0;
+      display: none;
+      position: sticky;
+      top:0;
+      flex-grow: 1;
       flex-shrink: 0;
       flex-direction: column;
       align-content: center;
       padding: 5%;
       -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3); 
       box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3);
-      .logIn{
+      .menubar span,
+      .menubar svg,
+      .logIn {
+        font-size: 10px;
+      }
+      .name , .name svg{
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+    .outNavBtn{
+      display: none;
+      .menuIcon{
         display: none;
       }
     }
-    .menubar ,
-    .logIn span {
-      font-size: 12px;
-    }
-    .name {
-      font-size: 14px;
-    }
-    ul{
-      margin-top:20%;
-    }
-    
-  
   }
   
   .transverse {
@@ -180,14 +231,21 @@ $light_black :rgb(65, 64, 64);
       justify-content: space-between;
     }
     .menubar{
-      margin: 0;
-    } 
-    li {
+      margin: 0;    
+      li {
       float:left;
       margin: 0;
       margin-right: 5px;
-    }
-    li, .logIn {
+      svg{
+        display: none;
+      }
+      span{
+        display: block;
+      }
+      }
+    } 
+
+    .menubar li, .logIn {
       font-size: 8px;
     }
 
@@ -203,65 +261,89 @@ $light_black :rgb(65, 64, 64);
       flex-direction: column;
       justify-content: space-around;
     }
-    .length:nth-child(1){
-      flex-direction: column;
-      .header{
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-        padding: 5% 5%;
-        .menuIcon{
-          position: relative;
-          top:0;
-          right: 0;
-        }
-        .name {
-          display: flex;
-          align-items: center;
-          & , svg {
-            font-size: 100%;
-          }
-        }
-        .logIn{
-          font-size: 10px;
-          padding: 4px 8px
-        }
-        &>div:nth-child(2){
-          display: flex;
-          align-content: center;
-        }
-
-      }
-      .side{
-        display: none;
-        position: absolute;
-        top:0;
-        right: 0;
-        .menuIcon {
-          display: none;
-        }
-      }
-    }
-    .length:nth-child(2){
-      margin:1rem 0;
-    }
-
     .menuIcon {
       position: absolute;
-      top:0;
-      right: -1.6rem;
       background-color: transparent;
       border-radius: 50%;
-  
-      font : {
-        size: 1.5rem;
-      }
+      font-size:1rem;
       color : $light_black;
       &:hover {
         color: $orange;
       }
     }
+    
+    .length:nth-child(1){
+      position: relative;
+      flex-direction: row-reverse;
+      .header{
+        width: 100%;
+        height: 1rem;
+        box-sizing: border-box;
+        display: flex;
+        padding: 5% 5%;
+        .name {
+          display: flex;
+          align-items: center;
+          & , svg {
+            font-size: 1rem;
+          }
+        }
+
+      }
+      .side{
+        position: absolute;
+        top:0;
+        right: 0;  
+        display: block;
+        height: fit-content;   
+        .nav{
+          display: none;
+        }
+        .menuIcon{
+          display: none;
+        }
+      }
+      .side.on {
+        position: sticky;
+        height: 100%;
+        background-color: #fffbecf8;
+        .nav{
+          display: block;
+        }
+      }
+      .outNavBtn {
+        display : block;
+        .menuIcon{
+          display: block;
+          top:5%;
+          right: 0;
+        }
+      }
+      .outNavBtn.on{
+        .menuIcon{
+          right:28%;
+        }
+      }
+    }
+    .length:nth-child(2){
+      margin:1rem 0;
+      .side{
+        flex-grow: 0;
+        flex-shrink: 1;
+      }
+      .menuIcon{
+        top:1rem;
+        right:-50%;
+        svg{
+          opacity: 0.5;
+          background-color:$ivory ;
+          border-radius: inherit;
+        }
+        padding: 0;
+      }
+    }
+
+
   }
   #menu2 {
     .menuBox {
@@ -278,6 +360,9 @@ $light_black :rgb(65, 64, 64);
     }
   }
   @media screen and (min-width:425px) {
+    .logIn{
+      padding: 4px 14px;
+    }
     .transverse{
       li, .logIn {
       font-size: 12px;
@@ -292,20 +377,39 @@ $light_black :rgb(65, 64, 64);
     }
   }
   @media screen and (min-width:768px) {
+    .main_section {
+      font-size: 1rem;
+    }
     .transverse{
       li, .logIn {
       font-size: 1rem;
-    }
-    }
-    #menu1 {
-      .menuBox{
-        flex-direction: row;
+    }}
+    .length{
+      .side.on , .side.left.on{
+      width: 15%;
+      }
+      .side {
+        .menubar span,
+        .menubar svg,
+        .logIn {
+          font-size: 1rem;
+        }
+        .name {
+          & , svg{
+            font-size: 1.2rem;
+          }
+        }
       }
     }
-    .length {
-      width: 45%;
+    #menu1 .length:nth-child(1) {
+      .header.name ,
+      .header .name svg,
+      .menuIcon{
+        font-size: 1.2rem;
+          }
     }
   }
+  
   @media screen and (min-width: 1024px) {
     .menuBox {
       flex-direction: row;

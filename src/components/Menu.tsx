@@ -1,43 +1,73 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {CgMenuRound} from 'react-icons/cg';
-import {BiCoffeeTogo} from 'react-icons/bi' ;
+import {BiCoffeeTogo, BiHomeSmile} from 'react-icons/bi' ;
 import {AiOutlineSmile} from 'react-icons/ai';
+import {MdOutlineConnectWithoutContact, MdOutlineContactSupport} from 'react-icons/md';
+
 import coffe from '../assets/img/coffe.jpg';
 import beverage from '../assets/img/beverage.jpg';
 import bread from '../assets/img/bread.jpg';
 
 const Menu=()=>{
-  const onShowSide =()=>{
 
-  };
-  const SideButton =()=>{
+  const SideButton =({side , outNavBtn})=>{
+    const onShowSide =()=>{ 
+      if(side.current.classList.contains("on")){
+        side.current.classList.remove("on");
+        outNavBtn.current.classList.remove("on");
+      }else{
+        side.current.classList.add("on");
+        outNavBtn.current.classList.add("on");
+      }      
+    };
     return (
-      <button className='menuIcon' onClick={onShowSide}>
+      <button className='menuIcon' onClick={onShowSide} >
         <CgMenuRound/>
       </button>
     )
   }
-  const Side =()=>{
+  const Side =({on})=>{
+    const side =useRef();
+    const outNavBtn =useRef();
     return(
-      <div className="side">
+      <>
+      <div className={on? "side on left " :"side"} ref={side}>
         <div className='nav'>
           <div className='name'>
-            Caffe &nbsp;
-              <AiOutlineSmile/>
-              <BiCoffeeTogo/>
+              <span>Caffe</span>
+              <div>
+                <AiOutlineSmile/>
+                <BiCoffeeTogo/>
+              </div>
           </div>
           <ul className='menubar'>
-            <li>Home</li>
-            <li>Product</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <BiHomeSmile/>
+              <span>Home</span>
+            </li>
+            <li>
+              <BiCoffeeTogo/>
+              <span>Product</span>
+            </li>
+            <li>
+              <MdOutlineContactSupport/>
+              <span>About</span>
+            </li>
+            <li>
+              <MdOutlineConnectWithoutContact/>
+              <span>Contact</span>
+            </li>
           </ul>
           <button className='logIn'>
-            <span>Log In</span>
+            Log In
           </button>
         </div>
-        <SideButton/>
-    </ div>
+        <SideButton side={side} outNavBtn={outNavBtn}/>
+      </div>
+      <div className='outNavBtn' ref={outNavBtn}>
+        <SideButton side={side} outNavBtn={outNavBtn}/>
+      </div>
+      </>
     )
   };
   const Main =()=>{
@@ -64,24 +94,20 @@ const Menu=()=>{
             </div>
     )
   };
-  const Length =()=>{
+  const Length =({on})=>{
     return (
       <div className="length">
-        <Side/>
-        <div className="header">
-          <div className='name'>
-            Caffe &nbsp;
-              <AiOutlineSmile/>
-              <BiCoffeeTogo/>
+        <Side on={on}/>
+        <div>
+          <div className="header">
+            <div className='name'>
+              Caffe &nbsp;
+                <AiOutlineSmile/>
+                <BiCoffeeTogo/>
+            </div>
           </div>
-          <div>
-            <button className='logIn'>
-              <span>Log In</span>
-            </button>
-            <SideButton/>
-          </div>
-        </div>
-        <Main/>
+          <Main/>
+        </div> 
       </div>
     )
   };
@@ -89,7 +115,7 @@ const Menu=()=>{
   const Transverse =()=>{
     return (
       <div className="transverse">
-        <Side/>
+        <Side on={false}/>
         <Main/>
       </div>
     )
@@ -99,8 +125,8 @@ const Menu=()=>{
       <section id="menu1">
         <header>Type 1. Hide</header>
         <div className='menuBox'>
-          <Length/>
-          <Length/>
+          <Length on={false}/>
+          <Length on={true}/>
         </div>
       </section>
       <section id="menu2">
@@ -113,7 +139,7 @@ const Menu=()=>{
       <section id="menu3">
         <header>Type 3. </header>
         <div className='menuBox'>
-          <Length/>
+          <Length on={true}/>
           <Transverse/>
         </div>
       </section>
