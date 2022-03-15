@@ -1362,6 +1362,10 @@ button, .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 1rem;
 }
 
@@ -1371,7 +1375,7 @@ button, .button {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 250px;
+  aspect-ratio: 4/3;
   overflow-y: scroll;
 }
 
@@ -1391,23 +1395,19 @@ button, .button {
       flex-shrink: 0;
 }
 
-#menus .main {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-}
-
 #menus .name {
   font-family: 'Sansita Swashed';
   font-weight: 700;
 }
 
-#menus .name div:nth-child(1) {
+#menus .name div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5px;
 }
 
 #menus .name svg {
@@ -1420,11 +1420,30 @@ button, .button {
 }
 
 #menus .menubar li {
-  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
 }
 
-#menus .logIn {
-  padding: 4px 14px;
+#menus .menubar li span {
+  margin-left: 5px;
+}
+
+#menus .menubar li:hover {
+  background-color: #ffde8a;
+  border-radius: 20px;
+}
+
+#menus .logIn svg {
+  display: none;
+  border-radius: 50%;
+}
+
+#menus .logIn button {
   text-align: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1441,22 +1460,18 @@ button, .button {
   position: relative;
 }
 
-#menus .logIn:hover {
-  border: 1px solid #ececec;
+#menus .logIn svg:hover,
+#menus .logIn button:hover {
+  border: none;
   -webkit-box-shadow: inset 0px 0px 2px #cccbcb;
           box-shadow: inset 0px 0px 2px #cccbcb;
   color: #fff;
-  text-shadow: 1px 2px 4px #919191;
-  background: #ffb806;
-}
-
-#menus .logIn span {
-  font-weight: 500;
-  width: 100%;
-  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffcc88), to(#ff9306));
+  background: linear-gradient(to bottom, #ffcc88 1%, #ff9306);
 }
 
 #menus .main {
+  background-color: #eeeeee;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1464,9 +1479,9 @@ button, .button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   -ms-flex-negative: 1;
       flex-shrink: 1;
   -webkit-box-pack: justify;
@@ -1487,7 +1502,7 @@ button, .button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 5px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -1502,27 +1517,90 @@ button, .button {
 #menus .main_section img {
   width: 100%;
   height: auto;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
 }
 
 #menus .length {
   width: 100%;
 }
 
-#menus .length .headder {
+#menus .length .header {
   width: 100%;
   display: none;
 }
 
+#menus .length .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#menus .length .side.on, #menus .length .side.left.on {
+  display: block;
+  width: 20%;
+}
+
+#menus .length .side.on .nav, #menus .length .side.left.on .nav {
+  display: block;
+}
+
+#menus .length .side.left {
+  display: block;
+  width: 5%;
+}
+
+#menus .length .side.left .menubar {
+  margin-top: 20%;
+}
+
+#menus .length .side.left .menubar li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 10px 0;
+}
+
+#menus .length .side.left .menubar li span,
+#menus .length .side.left .logIn button {
+  display: none;
+}
+
+#menus .length .side.left .logIn svg {
+  display: block;
+}
+
+#menus .length .side.left .menubar svg,
+#menus .length .side.left .logIn svg {
+  font-size: 1rem;
+}
+
+#menus .length .side.left.on .menubar li span, #menus .length .side.left.on .logIn button {
+  display: block;
+}
+
+#menus .length .side.left.on .logIn svg {
+  display: none;
+}
+
 #menus .length .side {
-  width: 25%;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  display: none;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -webkit-box-orient: vertical;
@@ -1536,21 +1614,40 @@ button, .button {
   box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195, 195, 195, 0.3);
 }
 
+#menus .length .side .menubar svg,
+#menus .length .side .menubar span,
+#menus .length .side .logIn button,
+#menus .length .side .logIn svg,
+#menus .length .side .name {
+  font-size: 10px;
+}
+
+#menus .length .side .name, #menus .length .side .name svg {
+  text-align: center;
+}
+
+#menus .length .side .menubar {
+  margin: 10px 0;
+}
+
+#menus .length .side .menubar li {
+  margin-top: 5px;
+}
+
 #menus .length .side .logIn {
+  text-align: center;
+}
+
+#menus .length .side .logIn button {
+  display: inline-block;
+}
+
+#menus .length .outNavBtn {
   display: none;
 }
 
-#menus .length .menubar,
-#menus .length .logIn span {
-  font-size: 12px;
-}
-
-#menus .length .name {
-  font-size: 14px;
-}
-
-#menus .length ul {
-  margin-top: 20%;
+#menus .length .outNavBtn .menuIcon {
+  display: none;
 }
 
 #menus .transverse {
@@ -1592,17 +1689,27 @@ button, .button {
   margin: 0;
 }
 
-#menus .transverse li {
+#menus .transverse .menubar li {
   float: left;
   margin: 0;
   margin-right: 5px;
 }
 
-#menus .transverse li, #menus .transverse .logIn {
+#menus .transverse .menubar li svg {
+  display: none;
+}
+
+#menus .transverse .menubar li span {
+  display: block;
+}
+
+#menus .transverse .menubar li,
+#menus .transverse .logIn,
+#menus .transverse .logIn button {
   font-size: 8px;
 }
 
-#menus .transverse .logIn {
+#menus .transverse .logIn button {
   padding: 0 5px;
 }
 
@@ -1610,39 +1717,39 @@ button, .button {
   margin-bottom: 3rem;
 }
 
-#menus #menu1 .menuBox {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+#menus #menu1 .menuIcon {
+  position: absolute;
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: #414040;
+}
+
+#menus #menu1 .menuIcon:hover {
+  color: #ffb806;
 }
 
 #menus #menu1 .length:nth-child(1) {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#menus #menu1 .length:nth-child(1) > div:last-child {
+  width: 100%;
 }
 
 #menus #menu1 .length:nth-child(1) .header {
   width: 100%;
+  height: 3rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 5% 5%;
-}
-
-#menus #menu1 .length:nth-child(1) .header .menuIcon {
-  position: relative;
-  top: 0;
-  right: 0;
+  padding: 0 1rem;
 }
 
 #menus #menu1 .length:nth-child(1) .header .name {
@@ -1655,92 +1762,158 @@ button, .button {
 }
 
 #menus #menu1 .length:nth-child(1) .header .name, #menus #menu1 .length:nth-child(1) .header .name svg {
-  font-size: 100%;
-}
-
-#menus #menu1 .length:nth-child(1) .header .logIn {
-  font-size: 10px;
-  padding: 4px 8px;
-}
-
-#menus #menu1 .length:nth-child(1) .header > div:nth-child(2) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  font-size: 1rem;
 }
 
 #menus #menu1 .length:nth-child(1) .side {
-  display: none;
   position: absolute;
   top: 0;
   right: 0;
+  display: block;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: transparent;
+}
+
+#menus #menu1 .length:nth-child(1) .side .nav {
+  display: none;
 }
 
 #menus #menu1 .length:nth-child(1) .side .menuIcon {
   display: none;
 }
 
+#menus #menu1 .length:nth-child(1) .side.on {
+  height: 100%;
+  background-color: #fffbecd3;
+}
+
+#menus #menu1 .length:nth-child(1) .side.on .nav {
+  display: block;
+}
+
+#menus #menu1 .length:nth-child(1) .outNavBtn {
+  display: block;
+}
+
+#menus #menu1 .length:nth-child(1) .outNavBtn .menuIcon {
+  display: block;
+  top: 1rem;
+  right: 0;
+}
+
+#menus #menu1 .length:nth-child(1) .outNavBtn.on .menuIcon {
+  right: 28%;
+}
+
 #menus #menu1 .length:nth-child(2) {
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
-#menus #menu1 .menuIcon {
-  position: absolute;
-  top: 0;
-  right: -1.6rem;
-  background-color: transparent;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  color: #414040;
+#menus #menu1 .length:nth-child(2) .side {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
-#menus #menu1 .menuIcon:hover {
-  color: #ffb806;
+#menus #menu1 .length:nth-child(2) .menuIcon {
+  top: 1rem;
+  right: -50%;
+  padding: 0;
 }
 
-#menus #menu2 .menuBox {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+#menus #menu1 .length:nth-child(2) .menuIcon svg {
+  opacity: 0.5;
+  background-color: #fcf9ef;
+  border-radius: inherit;
 }
 
 @media screen and (min-width: 375px) {
-  #menus .transverse li, #menus .transverse .logIn {
+  #menus .transverse li, #menus .transverse .logIn button {
     font-size: 10px;
   }
 }
 
 @media screen and (min-width: 425px) {
-  #menus .transverse li, #menus .transverse .logIn {
+  #menus .logIn button {
+    padding: 4px 14px;
+  }
+  #menus .length, #menus .transverse {
+    aspect-ratio: 16/9;
+  }
+  #menus .transverse li, #menus .transverse .logIn button {
     font-size: 12px;
   }
 }
 
 @media screen and (min-width: 550px) {
-  #menus .transverse li, #menus .transverse .logIn {
+  #menus .transverse li, #menus .transverse .logIn button {
     font-size: 14px;
+  }
+  #menus #menu1 .length:nth-child(2) .menuIcon {
+    right: -30%;
   }
 }
 
-@media screen and (min-width: 768px) {
-  #menus .transverse li, #menus .transverse .logIn {
+@media screen and (min-width: 600px) {
+  #menus .main_section {
     font-size: 1rem;
   }
-  #menus #menu1 .menuBox {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+  #menus .transverse li, #menus .transverse .logIn button {
+    font-size: 14px;
   }
-  #menus .length {
-    width: 45%;
+  #menus .length .side.on, #menus .length .side.left.on {
+    width: 15%;
+  }
+  #menus .length .side .menubar span,
+  #menus .length .side .menubar svg,
+  #menus .length .side .logIn svg {
+    font-size: 14px;
+  }
+  #menus .length .side .name, #menus .length .side .name svg {
+    font-size: 1.2rem;
+  }
+  #menus .length .side .menubar {
+    margin-top: 1.5rem;
+  }
+  #menus .length .side .menubar li {
+    margin-top: 10px;
+  }
+  #menus .length .side .logIn {
+    margin-top: 1.5rem;
+  }
+  #menus .length .side .logIn button {
+    font-size: 12px;
+  }
+  #menus #menu1 .length:nth-child(1) .header.name,
+  #menus #menu1 .length:nth-child(1) .header .name svg,
+  #menus #menu1 .length:nth-child(1) .menuIcon {
+    font-size: 1.2rem;
+  }
+  #menus #menu1 .length:nth-child(2) .side.left .menubar {
+    margin-top: 1rem;
+  }
+  #menus #menu1 .length:nth-child(2) .side.left.on .menubar svg,
+  #menus #menu1 .length:nth-child(2) .side.left.on .logIn svg {
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  #menus .transverse {
+    width: 45%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #menus .length .mebar li {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   #menus .menuBox {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1749,10 +1922,32 @@ button, .button {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  #menus .transverse {
-    width: 45%;
-    margin-left: 0;
-    margin-right: 0;
+  #menus .length {
+    width: 48%;
+  }
+  #menus .length .side .menubar span,
+  #menus .length .side .menubar svg,
+  #menus .length .side .logIn svg {
+    font-size: 13px;
+  }
+  #menus .length .side .menubar {
+    margin-top: 10px;
+  }
+  #menus .length .side .menubar li {
+    margin-top: 5px;
+  }
+  #menus .length .side .logIn {
+    margin-top: 0;
+  }
+  #menus #menu1 .length:nth-child(2) {
+    margin: 0;
+  }
+  #menus #menu1 .length:nth-child(2) .side.left .menubar {
+    margin-top: 1rem;
+  }
+  #menus #menu1 .length:nth-child(2) .side.left.on .menubar svg,
+  #menus #menu1 .length:nth-child(2) .side.left.on .logIn svg {
+    font-size: 1rem;
   }
 }
 
@@ -1863,6 +2058,18 @@ button, .button {
 
 #navIcon:hover {
   color: #ff6232;
+}
+
+@media screen and (min-width: 768px) {
+  #sidebar {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #sidebar {
+    width: 15vw;
+  }
 }
 
 body {

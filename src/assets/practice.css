@@ -1,9 +1,4 @@
 #practice {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-#practice section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,322 +8,98 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 100vh;
-  background: #042104;
+  background-color: #03a9f4;
+  height: 100%;
 }
 
-@-webkit-keyframes circle {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-            filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(360deg);
-            filter: hue-rotate(360deg);
-  }
-}
-
-@keyframes circle {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-            filter: hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(360deg);
-            filter: hue-rotate(360deg);
-  }
-}
-
-#practice section .loader {
+#practice .box {
   position: relative;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: circle 10s linear infinite;
-          animation: circle 10s linear infinite;
+  width: 300px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffff;
+  -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
 }
 
-#practice section .loader span {
+#practice .box .percent, #practice .box svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+#practice .box svg {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+#practice .box circle {
+  width: 150px;
+  height: 150px;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  stroke-dasharray: calc(70 *2* 3.14);
+  stroke-dashoffset: calc(70 *2 * 3.14);
+  stroke-linecap: round;
+}
+
+#practice .box circle:nth-child(1) {
+  stroke-dasharray: 0;
+  stroke: #f3f3f3;
+}
+
+#practice .box circle:nth-child(2) {
+  stroke: #03a9f4;
+}
+
+@-webkit-keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#practice .box .number {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #111;
 }
 
-#practice section .loader span:nth-child(1) {
-  -webkit-transform: rotate(18deg);
-          transform: rotate(18deg);
-}
-
-#practice section .loader span:nth-child(1)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
-}
-
-#practice section .loader span:nth-child(2) {
-  -webkit-transform: rotate(36deg);
-          transform: rotate(36deg);
-}
-
-#practice section .loader span:nth-child(2)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-
-#practice section .loader span:nth-child(3) {
-  -webkit-transform: rotate(54deg);
-          transform: rotate(54deg);
-}
-
-#practice section .loader span:nth-child(3)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-}
-
-#practice section .loader span:nth-child(4) {
-  -webkit-transform: rotate(72deg);
-          transform: rotate(72deg);
-}
-
-#practice section .loader span:nth-child(4)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-#practice section .loader span:nth-child(5) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-#practice section .loader span:nth-child(5)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-#practice section .loader span:nth-child(6) {
-  -webkit-transform: rotate(108deg);
-          transform: rotate(108deg);
-}
-
-#practice section .loader span:nth-child(6)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
-}
-
-#practice section .loader span:nth-child(7) {
-  -webkit-transform: rotate(126deg);
-          transform: rotate(126deg);
-}
-
-#practice section .loader span:nth-child(7)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.7s;
-          animation-delay: 0.7s;
-}
-
-#practice section .loader span:nth-child(8) {
-  -webkit-transform: rotate(144deg);
-          transform: rotate(144deg);
-}
-
-#practice section .loader span:nth-child(8)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-
-#practice section .loader span:nth-child(9) {
-  -webkit-transform: rotate(162deg);
-          transform: rotate(162deg);
-}
-
-#practice section .loader span:nth-child(9)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 0.9s;
-          animation-delay: 0.9s;
-}
-
-#practice section .loader span:nth-child(10) {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-#practice section .loader span:nth-child(10)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-#practice section .loader span:nth-child(11) {
-  -webkit-transform: rotate(198deg);
-          transform: rotate(198deg);
-}
-
-#practice section .loader span:nth-child(11)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.1s;
-          animation-delay: 1.1s;
-}
-
-#practice section .loader span:nth-child(12) {
-  -webkit-transform: rotate(216deg);
-          transform: rotate(216deg);
-}
-
-#practice section .loader span:nth-child(12)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
-}
-
-#practice section .loader span:nth-child(13) {
-  -webkit-transform: rotate(234deg);
-          transform: rotate(234deg);
-}
-
-#practice section .loader span:nth-child(13)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.3s;
-          animation-delay: 1.3s;
-}
-
-#practice section .loader span:nth-child(14) {
-  -webkit-transform: rotate(252deg);
-          transform: rotate(252deg);
-}
-
-#practice section .loader span:nth-child(14)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.4s;
-          animation-delay: 1.4s;
-}
-
-#practice section .loader span:nth-child(15) {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-#practice section .loader span:nth-child(15)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-#practice section .loader span:nth-child(16) {
-  -webkit-transform: rotate(288deg);
-          transform: rotate(288deg);
-}
-
-#practice section .loader span:nth-child(16)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.6s;
-          animation-delay: 1.6s;
-}
-
-#practice section .loader span:nth-child(17) {
-  -webkit-transform: rotate(306deg);
-          transform: rotate(306deg);
-}
-
-#practice section .loader span:nth-child(17)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.7s;
-          animation-delay: 1.7s;
-}
-
-#practice section .loader span:nth-child(18) {
-  -webkit-transform: rotate(324deg);
-          transform: rotate(324deg);
-}
-
-#practice section .loader span:nth-child(18)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
-}
-
-#practice section .loader span:nth-child(19) {
-  -webkit-transform: rotate(342deg);
-          transform: rotate(342deg);
-}
-
-#practice section .loader span:nth-child(19)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 1.9s;
-          animation-delay: 1.9s;
-}
-
-#practice section .loader span:nth-child(20) {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-
-#practice section .loader span:nth-child(20)::before {
-  -webkit-animation: animate 2s linear infinite;
-          animation: animate 2s linear infinite;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
-#practice section .loader span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #00ff0a;
-  -webkit-box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 30px #00ff0a, 0 0 40px #00ff0a;
-          box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 30px #00ff0a, 0 0 40px #00ff0a;
-  border-radius: 50%;
-}
-
-@-webkit-keyframes animate {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-}
-
-@keyframes animate {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
+#practice .text {
+  padding: 10px 0 0;
+  color: #999;
+  font-weight: 700;
 }
 /*# sourceMappingURL=practice.css.map */
