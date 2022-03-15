@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {CgMenuRound} from 'react-icons/cg';
 import {BiCoffeeTogo, BiHomeSmile} from 'react-icons/bi' ;
 import {AiOutlineSmile} from 'react-icons/ai';
@@ -12,19 +12,27 @@ import { RiLoginCircleLine } from 'react-icons/ri';
 const Menu=()=>{
 
   const SideButton =({side , outNavBtn})=>{
+    const clickIcon =useRef<HTMLDivElement>();
     const onShowSide =()=>{ 
       if(side.current.classList.contains("on")){
+        clickIcon.current.classList.add("on");
         side.current.classList.remove("on");
         outNavBtn.current.classList.remove("on");
       }else{
+        clickIcon.current.classList.remove("on");
         side.current.classList.add("on");
         outNavBtn.current.classList.add("on");
       }      
     };
     return (
-      <button className='menuIcon' onClick={onShowSide} >
-        <CgMenuRound/>
-      </button>
+      <div className='menuIcon'  >
+        <button onClick={onShowSide}>
+          <CgMenuRound/>
+        </button>
+        <div className="clickIcon" ref={clickIcon}>
+          click icon
+        </div>
+      </div>
     )
   }
   const Side =({on })=>{
@@ -127,29 +135,28 @@ const Menu=()=>{
     )
   };
   const menu1_length2 =useRef<HTMLDivElement>();
+  useEffect(()=>{
     if(menu1_length2.current !==undefined){
       menu1_length2.current.addEventListener("scroll", adjustHeight);
       function adjustHeight(){
         const top = menu1_length2.current.scrollTop;
         const side =menu1_length2.current.firstElementChild;
         const main =menu1_length2.current.lastElementChild.lastElementChild;
-        
-        if(side !==undefined && main !==undefined){
-          const main_height =Number((main as HTMLElement).style.height) ;
-          const side_height = Number((side as HTMLElement).style.height); 
-          const last_top:number = main_height -side_height;
-        
-          if(Number(top)  > last_top ){
-            (side as HTMLDivElement).style.top = Number(top)+"px";
-          }else{
-            (side as HTMLDivElement).style.top = last_top +"px";
-          }
-        
-      }
+        const main_height =Number((main as HTMLElement).style.height) ;
+        const side_height = Number((side as HTMLElement).style.height); 
+        const last_top:number = main_height -side_height;
+      
+        if(Number(top)  > last_top ){
+          (side as HTMLDivElement).style.top = Number(top)+"px";
+        }else{
+          (side as HTMLDivElement).style.top = last_top +"px";
+        }
     }
-   }
+  };
+  },[menu1_length2.current])
 
-  
+
+
   return(
     <div id="menus">
       <section id="menu1">
