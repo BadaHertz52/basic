@@ -7,7 +7,6 @@ import {MdOutlineConnectWithoutContact, MdOutlineContactSupport} from 'react-ico
 import coffe from '../assets/img/coffe.jpg';
 import beverage from '../assets/img/beverage.jpg';
 import bread from '../assets/img/bread.jpg';
-import { RiLoginCircleLine } from 'react-icons/ri';
 
 const Menu=()=>{
 
@@ -27,10 +26,9 @@ const Menu=()=>{
       </button>
     )
   }
-  const Side =({on })=>{
-    const side =useRef<HTMLDivElement>();
-    const outNavBtn =useRef<HTMLDivElement>();
-    
+  const Side =({on})=>{
+    const side =useRef();
+    const outNavBtn =useRef();
     return(
       <>
       <div className={on? "side on left " :"side"} ref={side}>
@@ -60,13 +58,9 @@ const Menu=()=>{
               <span>Contact</span>
             </li>
           </ul>
-          <div className='logIn'>
-            <button >
-              Log In
-            </button>
-            <RiLoginCircleLine/>
-          </div>
-
+          <button className='logIn'>
+            Log In
+          </button>
         </div>
         <SideButton side={side} outNavBtn={outNavBtn}/>
       </div>
@@ -103,7 +97,7 @@ const Menu=()=>{
   const Length =({on})=>{
     return (
       <div className="length">
-        <Side on={on} />
+        <Side on={on}/>
         <div>
           <div className="header">
             <div className='name'>
@@ -121,54 +115,17 @@ const Menu=()=>{
   const Transverse =()=>{
     return (
       <div className="transverse">
-        <Side on={false} />
+        <Side on={false}/>
         <Main/>
       </div>
     )
-  };
-  const menu1_length2 =useRef<HTMLDivElement>();
-    if(menu1_length2.current !==undefined){
-      menu1_length2.current.addEventListener("scroll", adjustHeight);
-      function adjustHeight(){
-        const top = menu1_length2.current.scrollTop;
-        const side =menu1_length2.current.firstElementChild;
-        const main =menu1_length2.current.lastElementChild.lastElementChild;
-        
-        if(side !==undefined && main !==undefined){
-          const main_height =Number((main as HTMLElement).style.height) ;
-          const side_height = Number((side as HTMLElement).style.height); 
-          const last_top:number = main_height -side_height;
-        
-          if(Number(top)  > last_top ){
-            (side as HTMLDivElement).style.top = Number(top)+"px";
-          }else{
-            (side as HTMLDivElement).style.top = last_top +"px";
-          }
-        
-      }
-    }
-   }
-
-  
+  }
   return(
     <div id="menus">
       <section id="menu1">
         <header>Type 1. Hide</header>
         <div className='menuBox'>
-          <div className="length" ref={menu1_length2}>
-              <Side 
-              on={false} />
-            <div>
-              <div className="header">
-                <div className='name'>
-                  Caffe &nbsp;
-                    <AiOutlineSmile/>
-                    <BiCoffeeTogo/>
-                </div>
-              </div>
-              <Main/>
-            </div> 
-          </div>
+          <Length on={false}/>
           <Length on={true}/>
         </div>
       </section>
