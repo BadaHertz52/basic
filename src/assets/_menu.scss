@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 @font-face {
-  font-family:'Sansita Swashed', cursive; 
+  font-family:'Sansita Swashed', cursive;
   src: url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
   font-style: normal;
   font-weight: normal;
@@ -18,6 +18,9 @@
 $orange :#ffb806;
 $light_black :rgb(65, 64, 64);
 $ivory :#fcf9ef;
+$dropDownBg:#fae397;
+$dropDownBg_light:#ffdd6e;
+$dropDownBg_dark:#f3edd7;
 
 #menus {
   section {
@@ -79,6 +82,31 @@ $ivory :#fcf9ef;
       }
     }
   }
+  .menubar.dropDown{
+    button{
+      @include basicBtn ;
+      padding: 0;
+    }
+    ul{
+      padding:0;
+    }
+    li:hover{
+      background-color: transparent;
+      border-radius: 0;
+    }
+    .mainMenu{
+      display: flex;
+      flex-direction: column;
+    }
+    .subMenu{
+      position: absolute;
+      top:0;
+      left: 0;
+    }
+    li{
+      width: fit-content;
+    }
+  }
   .logIn {
     svg{
       display: none;
@@ -118,7 +146,7 @@ $ivory :#fcf9ef;
       justify-content: space-between;
       font-size: 10px;
       text-align: center;
-  
+
       &>div{
         padding: 5% 0;
         width: 100%;
@@ -246,28 +274,35 @@ $ivory :#fcf9ef;
       flex-direction: column;
       align-content: center;
       padding: 5%;
-      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3); 
+      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3);
       box-shadow: 0px 0px 13px -7px #c7c7c780, 11px 0px 13px -2px rgba(195,195,195,0.3);
-      .menubar svg,
-      .menubar span, 
-      .logIn button,
-      .logIn svg ,
-      .name{
-        font-size: 10px;
+    }
+    .menubar svg,
+    .menubar span,
+    .logIn button,
+    .logIn svg ,
+    .name{
+      font-size: 10px;
+    }
+    .name , .name svg{
+      text-align: center;
+    }
+
+    .logIn{
+      text-align: center;
+      button{
+        display: inline-block ;
       }
-      .name , .name svg{
-        text-align: center;
-      }
-      .menubar {
-        margin: 10px 0;
-        li{
-          margin-top:5px;
-        }
-      }
-      .logIn{
-        text-align: center;
-        button{
-          display: inline-block ;
+    }
+    .menuIcon {
+      position: absolute;
+      button{
+        background-color: transparent;
+        border-radius: 50%;
+        font-size:1rem;
+        color : $light_black;
+        &:hover {
+          color: $orange;
         }
       }
     }
@@ -277,16 +312,115 @@ $ivory :#fcf9ef;
         display: none;
       }
     }
+    .menubar {
+      margin: 10px 0;
+      li{
+        margin-top:5px;
+      }
+    }
+    .menubar.dropDown{
+      .mainMenu{
+        align-items: center;
+      }
+      .subMenu{
+        position: relative;
+        flex-direction: column;
+        font-size: 10px;
+      }
+      .sub_mainMenu{
+        background-color: $dropDownBg_light;
+      }
+      .menuName.on ,
+      .sub_mainMenu_name.on{
+        svg{
+          transform: rotate(180deg);
+        }
+      }
+      .sub_mainMenu span{
+        font-size:8px;
+      }
+      .sub_subMenu{
+        display: none;
+        width:100%;
+        background-color:$dropDownBg_dark ;
+        li{
+          font-size: 8px;
+        }
+      }
+      .sub_subMenu.on{
+        display: block;
+      }
+    }
   }
-  
+  .length.length2{
+    position: relative;
+    flex-direction: row-reverse;
+    & > div:last-child{
+      width: 100%;
+    }
+    .header{ 
+      width: 100%;
+      height: 3rem;
+      box-sizing: border-box;
+      display: flex;
+      padding: 0 1rem ;
+      .name {
+        display: flex;
+        align-items: center;
+        & , svg {
+          font-size: 1rem;
+        }
+      }
+    }
+    .side{
+      position: absolute;
+      top:0;
+      right: 0;
+      display: block;
+      height: fit-content;
+      background-color: transparent;
+      .nav{
+        display: none;
+      }
+      .menuIcon{
+        display: none;
+      }
+    }
+    .side.on {
+      height: 100%;
+      background-color: #fffbecd3;
+      .nav{
+        display: block;
+      }
+    }
+    .outNavBtn {
+      display : block;
+      .menuIcon{
+        display: block;
+        top:1rem;
+        right: 0;
+      }
+    }
+    .outNavBtn.on{
+      .menuIcon{
+        right:35%;
+      }
+    }
+  }
   .transverse {
     width: 100%;
     text-align: center;
     flex-direction: column;
+    .name{
+      display: flex;
+      span{
+        margin-right: 5px;
+      }
+    }
     .side {
       width:100%;
-      height: fit-content;
-      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 0px 0px 13px -2px rgba(195,195,195,0.3); 
+      height: 2.2rem;
+      -webkit-box-shadow: 0px 0px 13px -7px #c7c7c780, 0px 0px 13px -2px rgba(195,195,195,0.3);
       box-shadow: 0px 0px 13px -7px #c7c7c780, 0px 0px 13px -2px rgba(195,195,195,0.3);
       .menuIcon{
         display: none;
@@ -300,7 +434,7 @@ $ivory :#fcf9ef;
       justify-content: space-between;
     }
     .menubar{
-      margin: 0;    
+      margin: 0;
       li {
       float:left;
       margin: 0;
@@ -312,9 +446,31 @@ $ivory :#fcf9ef;
         display: block;
       }
       }
-    } 
-
-    .menubar li, 
+    }
+    .menubar.dropDown{
+      .mainMenu{
+        padding-bottom: 0;
+        background-color: transparent;
+        &.on,
+        &:hover{
+          background-color: $dropDownBg;
+        }
+      }
+      .subMenu{
+        top:1.3rem;
+        background-color: $dropDownBg;
+        width: 100%;
+        li {
+        float: none;
+        }
+      }
+      .sub_mainMenu_name {
+        svg{
+          display: none;
+        }
+      }
+    }
+    .menubar li,
     .logIn ,
     .logIn button{
       font-size: 8px;
@@ -322,82 +478,15 @@ $ivory :#fcf9ef;
 
     .logIn button{
       padding: 0 5px;
+      border: none;
     }
     &:nth-child(1){
       margin-bottom: 3rem;
     }
+
   }
+  
   #menu1 {
-    .menuIcon {
-      position: absolute;
-      button{
-        background-color: transparent;
-        border-radius: 50%;
-        font-size:1rem;
-        color : $light_black;
-        &:hover {
-          color: $orange;
-        }
-      }
-    }
-    
-    .length:nth-child(1){
-      position: relative;
-      flex-direction: row-reverse;
-      & > div:last-child{
-        width: 100%;
-      }
-      .header{
-        width: 100%;
-        height: 3rem;
-        box-sizing: border-box;
-        display: flex;
-        padding: 0 1rem ;
-        .name {
-          display: flex;
-          align-items: center;
-          & , svg {
-            font-size: 1rem;
-          }
-        }
-
-      }
-      .side{
-        position: absolute;
-        top:0;
-        right: 0;  
-        display: block;
-        height: fit-content; 
-        background-color: transparent;  
-        .nav{
-          display: none;
-        }
-        .menuIcon{
-          display: none;
-        }
-      }
-      .side.on {
-        height: 100%;
-        background-color: #fffbecd3;
-        .nav{
-          display: block;
-        }
-      }
-      .outNavBtn {
-        display : block;
-        .menuIcon{
-          display: block;
-          top:1rem;
-          right: 0;
-        }
-      }
-      .outNavBtn.on{
-        .menuIcon{
-          right:35%;
-        }
-      }
-    }
-
     .length:nth-child(2){
       margin:2rem 0;
       .side{
@@ -422,16 +511,98 @@ $ivory :#fcf9ef;
           right:-50%;
         }
       }
-
     }
-
-
   }
   #menu2 {
-
+    .transverse{
+      position: relative;
+      .menuIcon{
+        display: none;
+      }
+      .subMenu{
+        display: none;
+        top:1.8rem;
+        width: 100%;
+        &.on{
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+      .sub_mainMenu{
+        display: flex;
+        flex-direction: column;
+      }
+      .sub_mainMenu_name{
+        width: 100%;
+        font-weight: bold;
+        text-align: left;
+      }
+    .sub_subMenu{
+        padding: 0;
+        li{
+          padding-left: 0;
+          color:rgb(92, 92, 92)
+        }
+    }
   }
+    .length.length2{
+      .side{
+        position: absolute;
+        padding: 0;
+        .name{
+          margin-top: 1rem;
+        }
+      }
+      .side.on{
+        position: sticky;
+      }
+      .outNavBtn.on{
+        .menuIcon{
+          right: 20%;
+        }
+      }
+      .mainMenu{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        width: 100%;
+        margin-right: 0;
+      }
+      .subMenu{
+        display: none;
+        width:100%;
+      }
+      .subMenu.on{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .sub_mainMenu{
+        width:100%;
+        display:block;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        li{
+          width: 70%;
+          margin-left: 5px;
+        }
+      }
 
-
+      .menubar.dropDown {
+        button{
+          display: flex;
+          margin-left: 8px;
+        }
+        button:hover,
+        .sub_subMenu li:hover{
+          border-bottom: 1px solid $black ;
+        }
+      }
+    }
+  }
   @media screen and (min-width:375px) {
     .transverse{
       li, .logIn button{
@@ -464,7 +635,7 @@ $ivory :#fcf9ef;
       aspect-ratio: 16/9;
     }
     .transverse{
-      li, .logIn button{
+      li, .logIn {
       font-size: 12px;
     }
     }
@@ -472,7 +643,7 @@ $ivory :#fcf9ef;
   }
   @media screen and (min-width:550px) {
     .transverse{
-      li, .logIn button {
+      li, .logIn {
       font-size: 14px;
     }}
     #menu1{
@@ -499,7 +670,6 @@ $ivory :#fcf9ef;
       .side.on , .side.left.on{
       width: 15%;
       }
-      .side {
         .menubar span,
         .menubar svg,
         .logIn svg{
@@ -518,11 +688,9 @@ $ivory :#fcf9ef;
         }
         .logIn{
           margin-top: 1.5rem;
-          button {
-            font-size: 12px;
-          }
+          font-size: 12px;
         }
-      }
+
 
     }
     #menu1 {
@@ -566,13 +734,20 @@ $ivory :#fcf9ef;
             font-size:1rem
           }
         }
-      } 
+      }
+    }
+
+    #menu2{
+      .length.length2{
+        .outNavBtn.on .menuIcon{
+          right: 15%;
+        }
+      }
     }
   }
-  
+
   @media screen and (min-width: 1024px) {
     .transverse {
-      width: 45%;
       margin: {
         left: 0;
         right:0;
@@ -593,7 +768,7 @@ $ivory :#fcf9ef;
     }
     .length{
       width: 48%;
-      .side {
+
         .menubar span,
         .menubar svg,
         .logIn svg{
@@ -608,7 +783,6 @@ $ivory :#fcf9ef;
         .logIn{
           margin-top: 0;
         }
-      }
     }
     #menu1 {
       .length:nth-child(2){
@@ -624,10 +798,8 @@ $ivory :#fcf9ef;
             font-size:1rem
           }
         }
-      } 
+      }
     }
 
-  }  
+  }
 }
-
-
