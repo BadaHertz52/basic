@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {CgMenuRound} from 'react-icons/cg';
 import {BiCoffeeTogo, BiHomeSmile, BiNews, BiStore} from 'react-icons/bi' ;
-import {AiOutlineSmile} from 'react-icons/ai';
+import {AiOutlineCloseCircle, AiOutlineConsoleSql, AiOutlineSmile} from 'react-icons/ai';
 
 import coffe from '../assets/img/coffe.jpg';
 import beverage from '../assets/img/beverage.jpg';
@@ -10,23 +10,30 @@ import { RiArrowDropDownLine, RiLoginCircleLine } from 'react-icons/ri';
 
 const Menu=()=>{
 
-  const SideButton =({side , outNavBtn})=>{
+  const SideButton =({side})=>{
     const clickIcon =useRef<HTMLDivElement>();
+    const [on ,setOn] =useState(false);
+
     const onShowSide =()=>{ 
       if(side.current.classList.contains("on")){
         clickIcon.current.classList.add("on");
         side.current.classList.remove("on");
-        outNavBtn.current.classList.remove("on");
+        setOn(false);
       }else{
         clickIcon.current.classList.remove("on");
         side.current.classList.add("on");
-        outNavBtn.current.classList.add("on");
+        setOn(true);
       }      
     };
     return (
       <div className='menuIcon'  >
         <button onClick={onShowSide}>
+          {on ?   
+          <AiOutlineCloseCircle/>
+          :
           <CgMenuRound/>
+          }
+          
         </button>
         <div className="clickIcon" ref={clickIcon}>
           click icon
@@ -61,12 +68,16 @@ const Menu=()=>{
       const target:HTMLElement =event.target;
       const button = target.tagName === "BUTTON" ? target : target.parentElement;
       const subMenu =button.nextElementSibling ;
+      const allOn =document.querySelectorAll('.mainMenu .on');
+      
       if(button.classList.contains("on")){
         button.classList.remove("on");
         subMenu.classList.remove("on"); 
       }else{
         button.classList.add("on");
         subMenu.classList.add("on");
+        subMenu.classList.contains("subMenu")&&
+        allOn.forEach(on=> on.classList.remove("on"));
       }
     }
     return(
@@ -178,7 +189,6 @@ const Menu=()=>{
   }
   const Side =({on , drop})=>{
     const side =useRef<HTMLDivElement>();
-    const outNavBtn =useRef<HTMLDivElement>();
     
     return(
       <>
@@ -204,10 +214,10 @@ const Menu=()=>{
           </div>
 
         </div>
-        <SideButton side={side} outNavBtn={outNavBtn}/>
+        <SideButton side={side} />
       </div>
-      <div className='outNavBtn' ref={outNavBtn}>
-        <SideButton side={side} outNavBtn={outNavBtn}/>
+      <div className='outNavBtn'>
+        <SideButton side={side} />
       </div>
       </>
     )
@@ -260,6 +270,7 @@ const Menu=()=>{
     useEffect(()=>{
       if(length2.current !==undefined && absoulte){
         length2.current.addEventListener("scroll", adjustHeight);
+        const outNavBtn =length2.current.childNodes[1].childNodes[0]; 
         function adjustHeight(){
           const top = length2.current.scrollTop;
           const side =length2.current.firstElementChild;
@@ -270,8 +281,11 @@ const Menu=()=>{
         
           if(Number(top)  > last_top ){
             (side as HTMLDivElement).style.top = Number(top)+"px";
+            (outNavBtn as HTMLDivElement).style.top=  Number(top)+ 
+            16+"px";
           }else{
             (side as HTMLDivElement).style.top = last_top +"px";
+            (outNavBtn as HTMLDivElement).style.top = last_top + 16 +"px";
           }
       }
     };
@@ -290,7 +304,7 @@ const Menu=()=>{
               </div>
               <Main/>
             </div> 
-          </div>
+      </div>
     )
   };
 
@@ -302,8 +316,6 @@ const Menu=()=>{
       </div>
     )
   };
-
- 
 
   return(
     <div id="menus">
