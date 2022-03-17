@@ -1369,6 +1369,10 @@ button, .button {
   margin-top: 1rem;
 }
 
+#menus .menuBox > div:nth-child(2) {
+  margin: 2rem 0;
+}
+
 #menus .length, #menus .transverse {
   border: 1px solid #c2c1c1;
   display: -webkit-box;
@@ -1972,6 +1976,11 @@ button, .button {
   display: none;
 }
 
+#menus .transverse .menubar.dropDown button:hover,
+#menus .transverse .menubar.dropDown .sub_subMenu li:hover {
+  font-weight: bold;
+}
+
 #menus .transverse .menubar li,
 #menus .transverse .logIn,
 #menus .transverse .logIn button {
@@ -1981,10 +1990,6 @@ button, .button {
 #menus .transverse .logIn button {
   padding: 0 5px;
   border: none;
-}
-
-#menus .transverse:nth-child(1) {
-  margin-bottom: 3rem;
 }
 
 #menus #menu1 .length:nth-child(2) {
@@ -2263,7 +2268,10 @@ button, .button {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  #menus .length {
+  #menus .menuBox > div:nth-child(2) {
+    margin: 0;
+  }
+  #menus .transverse, #menus .length {
     width: 48%;
   }
   #menus .length .menubar span,

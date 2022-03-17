@@ -37,6 +37,10 @@ $dropDownBg_dark:#f3edd7;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
+
+    &>div:nth-child(2){
+      margin:2rem 0;
+    }
   }
   .length, .transverse {
     border: 1px solid rgb(194, 193, 193);
@@ -469,6 +473,10 @@ $dropDownBg_dark:#f3edd7;
           display: none;
         }
       }
+      button:hover,
+      .sub_subMenu li:hover{
+        font-weight: bold;
+      }
     }
     .menubar li,
     .logIn ,
@@ -480,10 +488,6 @@ $dropDownBg_dark:#f3edd7;
       padding: 0 5px;
       border: none;
     }
-    &:nth-child(1){
-      margin-bottom: 3rem;
-    }
-
   }
   
   #menu1 {
@@ -765,10 +769,15 @@ $dropDownBg_dark:#f3edd7;
     .menuBox {
       flex-direction: row;
       justify-content: space-around;
+
+      &>div:nth-child(2){
+        margin: 0;
+      }
+    }
+    .transverse , .length{
+      width:48%
     }
     .length{
-      width: 48%;
-
         .menubar span,
         .menubar svg,
         .logIn svg{
